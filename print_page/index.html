@@ -1,0 +1,3587 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="WIS2 in a box (wis2box) is a Free and Open Source (FOSS) Reference Implementation of a WMO WIS2 Node. The project provides a plug and play toolset to ingest, process, and publish weather/climate/water data using standards-based approaches in alignment with the WIS2 principles. wis2box also provides access to all data in the WIS2 network. wis2box is designed to have a low barrier to entry for data providers, providing enabling infrastructure and services for data discovery, access, and visualization.">
+      
+      
+        <meta name="author" content="World Meteorological Organization">
+      
+      
+        <link rel="canonical" href="https://training.wis2box.wis.wmo.int/print_page/">
+      
+      
+      
+      <link rel="icon" href="https://public.wmo.int/sites/all/themes/wmo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Print Site - WIS2 in a box training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="WIS2 in a box training" class="md-header__button md-logo" aria-label="WIS2 in a box training" data-md-component="logo">
+      
+  <img src="../assets/img/wmo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WIS2 in a box training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Print Site
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wmo-im/wis2box-training" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WIS2 in a box training" class="md-nav__button md-logo" aria-label="WIS2 in a box training" data-md-component="logo">
+      
+  <img src="../assets/img/wmo-logo.png" alt="logo">
+
+    </a>
+    WIS2 in a box training
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wmo-im/wis2box-training" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Practical sessions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Practical sessions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/connecting-to-mqtt/" class="md-nav__link">
+        Connecting to WIS2 over MQTT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/accessing-your-student-vm/" class="md-nav__link">
+        Accessing your student VM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/converting-synop-data-to-bufr/" class="md-nav__link">
+        Converting SYNOP data to BUFR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/converting-csv-data-to-bufr/" class="md-nav__link">
+        Converting CSV data to BUFR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/converting-daycli-data-to-bufr/" class="md-nav__link">
+        Converting DAYCLI data to BUFR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/wis2box-introduction/" class="md-nav__link">
+        wis2box introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/data-ingest-and-monitoring/" class="md-nav__link">
+        wis2box data ingest and monitoring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/downloading-and-finding-data-from-wis2/" class="md-nav__link">
+        Downloading and finding data from WIS2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/environment-variables/" class="md-nav__link">
+        wis2box environment variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/configuring-data-mappings/" class="md-nav__link">
+        wis2box configuring data mappings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/configuring-wis2-discovery-metadata/" class="md-nav__link">
+        wis2box configuring discovery metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/configuring-station-metadata/" class="md-nav__link">
+        wis2box configuring station metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-sessions/data-api-usage-and-queries/" class="md-nav__link">
+        wis2box data API usage and queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+          Answers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Answers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../answers/synop2bufr-answers/" class="md-nav__link">
+        SYNOP data to BUFR answers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../answers/csv2bufr-answers/" class="md-nav__link">
+        CSV data to BUFR answers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Cheatsheets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cheatsheets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/yaml/" class="md-nav__link">
+        YAML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/wis2box/" class="md-nav__link">
+        WIS2 in a box
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../schedule/namibia-2023-03/">Schedule</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Schedule
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/trinidad-and-tobago-2023-06/" class="md-nav__link">
+        12 - 16 June 2023 - Port of Spain, Trinidad and Tobago 🇹🇹
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/indonesia-2023-10/" class="md-nav__link">
+        9 - 13 October 2023 - Jakarta, Indonesia 🇮🇩
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#" class="md-nav__link">
+    1. Home
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-practical-sessions" class="md-nav__link">
+    I. Practical sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="I. Practical sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-connecting-to-mqtt" class="md-nav__link">
+    2. Connecting to WIS2 over MQTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-accessing-your-student-vm" class="md-nav__link">
+    3. Accessing your student VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-converting-synop-data-to-bufr" class="md-nav__link">
+    4. Converting SYNOP data to BUFR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-converting-csv-data-to-bufr" class="md-nav__link">
+    5. Converting CSV data to BUFR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-converting-daycli-data-to-bufr" class="md-nav__link">
+    6. Converting DAYCLI data to BUFR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-wis2box-introduction" class="md-nav__link">
+    7. wis2box introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-data-ingest-and-monitoring" class="md-nav__link">
+    8. wis2box data ingest and monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-downloading-and-finding-data-from-wis2" class="md-nav__link">
+    9. Downloading and finding data from WIS2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-environment-variables" class="md-nav__link">
+    10. wis2box environment variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-configuring-data-mappings" class="md-nav__link">
+    11. wis2box configuring data mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-configuring-wis2-discovery-metadata" class="md-nav__link">
+    12. wis2box configuring discovery metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-configuring-station-metadata" class="md-nav__link">
+    13. wis2box configuring station metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-sessions-data-api-usage-and-queries" class="md-nav__link">
+    14. wis2box data API usage and queries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-cheatsheets" class="md-nav__link">
+    II. Cheatsheets
+  </a>
+  
+    <nav class="md-nav" aria-label="II. Cheatsheets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cheatsheets-linux" class="md-nav__link">
+    15. Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cheatsheets-docker" class="md-nav__link">
+    16. Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cheatsheets-yaml" class="md-nav__link">
+    17. YAML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cheatsheets-wis2box" class="md-nav__link">
+    18. WIS2 in a box
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-schedule" class="md-nav__link">
+    III. Schedule
+  </a>
+  
+    <nav class="md-nav" aria-label="III. Schedule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schedule-namibia-2023-03" class="md-nav__link">
+    19. 20 - 24 March 2023 - Windhoek, Namibia 🇳🇦
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-trinidad-and-tobago-2023-06" class="md-nav__link">
+    20. 12 - 16 June 2023 - Port of Spain, Trinidad and Tobago 🇹🇹
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-indonesia-2023-10" class="md-nav__link">
+    21. 9 - 13 October 2023 - Jakarta, Indonesia 🇮🇩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div id="print-site-page" class="print-site-enumerate-headings print-site-enumerate-figures">
+        <section class="print-page">
+            <div id="print-page-toc" data-toc-depth="3">
+                <nav role='navigation' class='print-page-toc-nav'>
+                <h1 class='print-page-toc-title'>Table of Contents</h1>
+                </nav>
+            </div>
+        </section>
+        <section class="print-page" id="index"><p><img alt="WMO logo" src="../assets/img/wmo-logo.png" width="200"></p>
+<h1 id="index-wis2-in-a-box-training">WIS2 in a box training</h1>
+<p>WIS2 in a box (<a href="https://docs.wis2box.wis.wmo.int">wis2box</a>) is a Free and Open Source (FOSS) Reference Implementation of a WMO WIS2 Node. The project provides a plug and play toolset to ingest, process, and publish weather/climate/water data using standards-based approaches in alignment with the WIS2 principles. wis2box also provides access to all data in the WIS2 network. wis2box is designed to have a low barrier to entry for data providers, providing enabling infrastructure and services for data discovery, access, and visualization.</p>
+<p>This training provides step-by-step explanations of various aspects of the wis2box project as well as a number of exercises
+to help you publish and download data from WIS2.  The training is provided in the form of overview presentations as well as
+hands-on practical exercises.</p>
+<p>Participants will be able to work with sample test data and metadata, as well as integrate their own data and metadata.</p>
+<p>This training covers a wide range of topics (install/setup/configuration, publishing/downloading data, etc.). </p>
+<h2 id="index-goals-and-learning-outcomes">Goals and learning outcomes</h2>
+<p>The goals of this training are to become familiar with the following:</p>
+<ul>
+<li>WIS2 architecture core concepts and components</li>
+<li>data and metadata formats used in WIS2 for discovery and access</li>
+<li>wis2box architecture and environment</li>
+<li>wis2box core functions:<ul>
+<li>metadata management</li>
+<li>data ingest and transformation to BUFR format</li>
+<li>MQTT broker for WIS2 message publishing</li>
+<li>HTTP endpoint for data download</li>
+<li>API endpoint for programmatic access to data</li>
+</ul>
+</li>
+</ul>
+<h2 id="index-navigation">Navigation</h2>
+<p>The left hand navigation provides a table of contents for the entire training.</p>
+<p>The right hand navigation provides a table of contents for a specific page.</p>
+<h2 id="index-prerequisites">Prerequisites</h2>
+<h3 id="index-knowledge">Knowledge</h3>
+<ul>
+<li>Basic Linux commands (see the <a href="#cheatsheets-linux">cheatsheet</a>)</li>
+<li>Basic knowledge of networking and Internet protocols</li>
+</ul>
+<h3 id="index-software">Software</h3>
+<p>This training requires the following tools:</p>
+<ul>
+<li>An instance running Ubuntu OS (provided by WMO trainers during local training sessions) see <a href="#practical-sessions-accessing-your-student-vm-introduction">Accessing your student VM</a></li>
+<li>SSH client to access your instance</li>
+<li>MQTT Explorer on your local machine</li>
+<li>SCP and FTP client to copy files from your local machine</li>
+</ul>
+<h2 id="index-conventions">Conventions</h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>A section marked like this invites you to answer a question.</p>
+</div>
+<p>Also you will notice tips and notes sections within the text:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tips share help on how to best achieve tasks.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notes provide additional information on the topic covered by the practical session, as well as how to best achieve tasks.</p>
+</div>
+<p>Examples are indicated as follows:</p>
+<p>Configuration
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">my-collection-defined-in-yaml</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">collection</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my title defined as a yaml attribute named title</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my description as a yaml attribute named description</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Snippets which need to be typed in a on a terminal/console are indicated as:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Hello world&#39;</span>
+</code></pre></div>
+<h2 id="index-training-location-and-materials">Training location and materials</h2>
+<p>This training is always provided live at <a href="https://training.wis2box.wis.wmo.int">https://training.wis2box.wis.wmo.int</a>.</p>
+<p>The training contents, wiki and issue tracker are managed on GitHub at <a href="https://github.com/wmo-im/wis2box-training">https://github.com/wmo-im/wis2box-training</a>.</p>
+<h2 id="index-printing-the-material">Printing the material</h2>
+<p>This training can be exported to PDF.  To save or print this training material, go to the <a href="#print_page">print page</a>, and select
+File &gt; Print &gt; Save as PDF.</p>
+<h2 id="index-exercise-materials">Exercise materials</h2>
+<p>Exercise materials can be downloaded from the <a href="https://training.wis2box.wis.wmo.int/exercise-materials.zip">exercise-materials.zip</a> zipfile.</p>
+<h2 id="index-support">Support</h2>
+<p>For issues/bugs/suggestions or improvements/contributions to this training, please use the <a href="https://github.com/wmo-im/wis2box-training/issues">GitHub issue tracker</a>.</p>
+<p>All wis2box bugs, enhancements and issues can be reported on <a href="https://github.com/wmo-im/wis2box/issues">GitHub</a>.</p>
+<p>For additional support of questions, please contact wis@wmo.int.</p>
+<p>As always, wis2box core documentation can always be found at <a href="https://docs.wis2box.wis.wmo.int">https://docs.wis2box.wis.wmo.int</a>.</p>
+<p>Contributions are always encouraged and welcome!</p></section>
+                        <h1 class='nav-section-title' id='section-practical-sessions'>
+                            Practical sessions <a class='headerlink' href='#section-practical-sessions' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="practical-sessions-connecting-to-mqtt"><h1 id="practical-sessions-connecting-to-mqtt-connecting-to-wis2-over-mqtt">Connecting to WIS2 over MQTT</h1>
+<h2 id="practical-sessions-connecting-to-mqtt-introduction">Introduction</h2>
+<p>WIS2 uses the MQTT protocol to advertise the availability of weather/climate/water data. The WIS2 Global Broker subscribes to all WIS2 Nodes in the network and republishes the messages it receives. The Global Cache subscribes to the Global Broker, downloads the data in the message and then republishes the message on the <code>cache</code> topic with a new URL.  The Global Discovery Catalogue publishes discovery metadata from the Broker and provides a search API.</p>
+<p>As part of the WIS2 Pilot Phase in 2023, the following Global Broker services are available:</p>
+<h3 id="practical-sessions-connecting-to-mqtt-meteo-france">Météo-France</h3>
+<ul>
+<li>host: globalbroker.meteo.fr</li>
+<li>port: 8883</li>
+<li>username: everyone</li>
+<li>password: everyone</li>
+</ul>
+<h3 id="practical-sessions-connecting-to-mqtt-cma">CMA</h3>
+<ul>
+<li>host: gb.wis.cma.cn</li>
+<li>port: 8883</li>
+<li>username: everyone</li>
+<li>password: everyone</li>
+</ul>
+<p>In this practical session you will learn how to use the MQTT Explorer tool to review the topics available on this Global Broker and be able to display WIS2 notification messages.</p>
+<h2 id="practical-sessions-connecting-to-mqtt-using-mqtt-explorer-to-connect-to-the-global-broker">Using MQTT Explorer to connect to the Global Broker</h2>
+<p>One way to view messages published by this Global Broker is using the MQTT Explorer which can be downloaded from the <a href="https://mqtt-explorer.com">MQTT Explorer website</a>.</p>
+<p>Open MQTT Explorer and add a new connection as follows:</p>
+<p><img alt="mqtt-explorer-global-broker-connection" src="../assets/img/mqtt-explorer-global-broker-connection.png" width="600"></p>
+<p>Click on the 'ADVANCED' button and add the following topics to subscribe to:</p>
+<p><img alt="mqtt-explorer-global-broker-advanced" src="../assets/img/mqtt-explorer-global-broker-advanced.png" width="600"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When setting up MQTT subscriptions you can use the following wildcards:</p>
+<ul>
+<li><strong>Single-level (+)</strong>: a single-level wildcard replaces one topic level</li>
+<li><strong>Multi-level (#)</strong>: a multi-level wildcard replaces multiple topic levels</li>
+</ul>
+</div>
+<p>Click 'BACK', then 'SAVE' to save your connection and subscription details.  Then click 'CONNECT':</p>
+<p>At this point, the following should appear in the MQTT Explorer session:</p>
+<p><img alt="mqtt-explorer-global-broker-topics" src="../assets/img/mqtt-explorer-global-broker-topics.png" width="600"></p>
+<p>You are now ready to start exploring the WIS2 topics and message structure and answer the following questions:</p>
+<div class="admonition question">
+<p class="admonition-title">Review the WIS2 topic structure</p>
+<p>Use MQTT to browse topic structure under the <code>origin</code> and <code>cache</code> topics.</p>
+<p>How can we distinguish the originating country providing the data?</p>
+<p>How many countries are sharing data?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Zambia data from origin</p>
+<p>Find the latest message received in the following topic:</p>
+<p><code>origin/a/wis2/zmb/zambia_met_service/data/core/weather/surface-based-observations/synop</code></p>
+<p>You can view the content of the WIS2 message in the "Value" section on the right hand side.</p>
+<p>What is the timestamp in UTC for when this data was published?</p>
+<p>What is the URL from which we can download the data in BUFR format?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Zambia data from cache</p>
+<p>Find the latest message received on the following topic:</p>
+<p><code>cache/a/wis2/zmb/zambia_met_service/data/core/weather/surface-based-observations/synop</code></p>
+<p>What is the timestamp in UTC for when this data was published?</p>
+<p>What is the URL we can use to download the data?  What is the difference between this URL and the URL in the previous question?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MQTT Explorer is a helpful tool to review the topic structure for a given MQTT broker and visually work with the MQTT protocol. There exist many MQTT client and server software. </p>
+<p>To work with MQTT programmatically (for example, in Python), you can use MQTT client libraries such as <a href="https://pypi.org/project/paho-mqtt/">paho-mqtt</a> to connect to an MQTT broker and process incoming messages.</p>
+</div>
+<h2 id="practical-sessions-connecting-to-mqtt-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>Congratulations!  In this practical session, you learned:</p>
+<ul>
+<li>how to subscribe to WIS2 Global Broker services using MQTT Explorer</li>
+<li>the WIS2 topic structure</li>
+<li>the WIS2 notification message structure</li>
+<li>the difference between Global Broker messages published on the <code>origin</code> and <code>cache</code> topics</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-accessing-your-student-vm"><h1 id="practical-sessions-accessing-your-student-vm-accessing-your-student-vm">Accessing your student VM</h1>
+<h2 id="practical-sessions-accessing-your-student-vm-introduction">Introduction</h2>
+<p>As part of locally run wis2box training sessions, you can access your personal student VM on the local training network named "WIS2-training".</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to run this training outside of a local training session, you can provide your own instance using any Cloud Provider:</p>
+<ul>
+<li>GCP (Google Cloud Platform) VM instance <code>e2-medium</code></li>
+<li>AWS (Amazon Web Services)  ec2-instance <code>t3a.medium</code> </li>
+<li>Azure (Microsoft) Azure Virtual Machine <code>standard_b2s</code></li>
+</ul>
+<p>Select Ubuntu Server 20.0.4 LTS as OS and run the setup script available in <a href="https://training.wis2box.wis.wmo.int/student-vm-setup.zip">student-vm-setup.zip</a> on your instance to ensure you have all required software.</p>
+<p>If you are using the student VM provided during local WIS2 training sessions, the required software will already be installed.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The student-VMs provided during WIS2 local training sessions have the following command-line editors pre-installed:</p>
+<ul>
+<li>vi</li>
+<li>vim</li>
+<li>nano</li>
+<li>emacs</li>
+</ul>
+</div>
+<h2 id="practical-sessions-accessing-your-student-vm-connect-to-your-student-vm-on-the-local-training-network">Connect to your student VM on the local training network</h2>
+<p>Use the following configuration to connect your PC on the local WiFi broadcasted in the room during WIS2 training:</p>
+<ul>
+<li><strong>SSID: WIS2-training</strong></li>
+<li><strong>password: dataismagic!</strong></li>
+</ul>
+<p>Use an SSH client to connect to your student VM using the following:</p>
+<ul>
+<li><strong>Host: (provided during in-person training)</strong></li>
+<li><strong>Port: 22</strong></li>
+<li><strong>Username: (provided during in-person training)</strong></li>
+<li><strong>Password: wis2training</strong> (default password to be changed after logging in)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Contact a trainer if you are unsure about the hostname/username or have issues connecting.</p>
+</div>
+<p>Once connected, please change your password to ensure others cannot access your VM:</p>
+<div class="highlight"><pre><span></span><code>limper@student-vm:~$<span class="w"> </span>passwd
+Changing<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>testuser.
+Current<span class="w"> </span>password:
+New<span class="w"> </span>password:
+Retype<span class="w"> </span>new<span class="w"> </span>password:
+passwd:<span class="w"> </span>password<span class="w"> </span>updated<span class="w"> </span>successfully
+</code></pre></div>
+<h2 id="practical-sessions-accessing-your-student-vm-verify-software-versions">Verify software versions</h2>
+<p>To be able to practice conversion to BUFR, the student VM comes with ecCodes, synop2bufr and csv2bufr pre-installed:</p>
+<p>Check the ecCodes version via the <code>bufr_dump</code> command:</p>
+<p><div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-V
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">ecCodes Version 2.28.0</span>
+</code></pre></div></p>
+<p>Check synop2bufr version:
+<div class="highlight"><pre><span></span><code>synop2bufr<span class="w"> </span>--version
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">synop2bufr, version 0.4.1</span>
+</code></pre></div></p>
+<p>Check csv2bufr version:
+<div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>--version
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">csv2bufr, version 0.6.3</span>
+</code></pre></div></p>
+<p>To be able to run wis2box, the student VM also comes with Python Docker and Docker Compose pre-installed. </p>
+<p>Check docker version:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>--version
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">Docker version 20.10.17, build 100c701</span>
+</code></pre></div></p>
+<p>Check Docker Compose version:
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>--version
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">docker-compose version 1.29.0, build unknown</span>
+</code></pre></div></p>
+<p>Check Python version:
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>--version
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">Python 3.8.10</span>
+</code></pre></div></p>
+<h2 id="practical-sessions-accessing-your-student-vm-inspect-the-exercise-materials">Inspect the exercise materials</h2>
+<p>Inspect the contents of your home directory; these are the materials used as part of the training and practical sessions.</p>
+<p><div class="highlight"><pre><span></span><code>ls<span class="w"> </span>~/
+</code></pre></div>
+returns:
+<div class="highlight"><pre><span></span><code><span class="go">exercise-materials  wis2box-1.0b4</span>
+</code></pre></div></p>
+<p>To access the material on your local machine rather than from the command line, you can use SCP. Using WinSCP, you can create a new SCP connection to your VM as follows:</p>
+<p><img alt="winscp-student-vm-scp.png" src="../assets/img/winscp-student-vm-scp.png" width="400"></p>
+<p>And you should be able to see the following content:</p>
+<p><img alt="winscp-student-vm-exercise-materials.png" src="../assets/img/winscp-student-vm-exercise-materials.png" width="600"></p>
+<h2 id="practical-sessions-accessing-your-student-vm-exercise-1-editing-files-on-your-student-vm">Exercise 1: Editing files on your Student VM</h2>
+<p>Connect to your Student VM using WinSCP and browse into the directory: <code>~/exercise-materials/accessing-your-student-vm/</code></p>
+<p>Right-click on the file <code>hello_world.txt</code> and select <strong>Edit -&gt; Internal editor</strong>.  Edit this file by adding a message of your own and save your changes.</p>
+<p><img alt="winscp_internal_editor.png" src="../assets/img/winscp_internal_editor.png" width="600"></p>
+<p>From within your SSH client check the content of the file <code>~/exercise-materials/accessing-your-student-vm/hello_world.txt</code>:</p>
+<p><div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/exercise-materials/accessing-your-student-vm/hello_world.txt
+</code></pre></div>
+And confirm you see the changes you made in the file.</p>
+<p>During the exercises you will be asked to edit files. It is up to you if you prefer to edit files from the command line in your SSH client (using <code>vi</code>/<code>vim</code>/<code>nano</code>/<code>emacs</code>) or using WinSCP.</p>
+<h2 id="practical-sessions-accessing-your-student-vm-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>access your student VM over SSH and WinSCP</li>
+<li>verify the required software for the practical exercises is installed</li>
+<li>verify you have access to exercise materials for this training on your local student VM</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-converting-synop-data-to-bufr"><h1 id="practical-sessions-converting-synop-data-to-bufr-converting-synop-data-to-bufr">Converting SYNOP data to BUFR</h1>
+<h2 id="practical-sessions-converting-synop-data-to-bufr-introduction">Introduction</h2>
+<p>Surface synoptic observations (SYNOP) data are used to report weather observations from surface
+stations (manned or automated).  <a href="https://github.com/wmo-im/synop2bufr">synop2bufr</a> is a tool to
+help convert SYNOP to BUFR data.  <a href="https://confluence.ecmwf.int/display/ECC/ecCodes+Home">ecCodes</a>
+is a package to reading and writing GRIB and BUFR formats.</p>
+<p>In this session you will learn about converting a SYNOP report into the WMO BUFR format using the
+above mentioned tools, as well as the relationship between SYNOP reports and BUFR messages.</p>
+<h2 id="practical-sessions-converting-synop-data-to-bufr-preparation">Preparation</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that you are logged into your student VM. </p>
+</div>
+<p>Navigate to the <code>exercise-materials/synop2bufr-exercises</code> directory and make sure that the exercises directories are there.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/synop2bufr-exercises
+ls
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You should be able to see the following directories <code>answers  ex_1  ex_2  ex_3  ex_4  ex_5</code></p>
+</div>
+<h2 id="practical-sessions-converting-synop-data-to-bufr-synop2bufr-primer">synop2bufr primer</h2>
+<p>Below are essential <code>synop2bufr</code> commands and configurations:</p>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-transform">transform</h3>
+<p>The <code>transform</code> function converts a SYNOP message to BUFR:</p>
+<div class="highlight"><pre><span></span><code>synop2bufr<span class="w"> </span>transform<span class="w"> </span>--metadata<span class="w"> </span>my_file.csv<span class="w"> </span>--output-dir<span class="w"> </span>./my_directory<span class="w"> </span>--year<span class="w"> </span>message_year<span class="w"> </span>--month<span class="w"> </span>message_month<span class="w"> </span>my_SYNOP.txt
+</code></pre></div>
+<p>Note that if the metadata, output directory, year and month options are not specified, they will assume their default values:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--metadata</td>
+<td>station_list.csv</td>
+</tr>
+<tr>
+<td>--output-dir</td>
+<td>The current working directory.</td>
+</tr>
+<tr>
+<td>--year</td>
+<td>The current year.</td>
+</tr>
+<tr>
+<td>--month</td>
+<td>The current month.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One must be cautious using the default year and month, as the day of the month specified in the report may not correspond (e.g. June does not have 31 days).</p>
+</div>
+<p>In the examples, the year and month are not given, so feel free to specify a date yourself or use the default values.</p>
+<h2 id="practical-sessions-converting-synop-data-to-bufr-eccodes-primer">ecCodes primer</h2>
+<p>ecCodes provides both command line tools and can be embedded in your own applications.  Below are some useful command
+line utilities to work with BUFR data.</p>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-bufr_dump">bufr_dump</h3>
+<p>The <code>bufr_dump</code> command is a generic BUFR information tool.  It has many options, but the following will be the most applicable to the exercises:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>my_bufr.bufr4
+</code></pre></div>
+<p>This will display BUFR content to your screen.  If you are interested in the values taken by a variable in particular, use the <code>egrep</code> command:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>my_bufr.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span>temperature
+</code></pre></div>
+<p>This will display variables related to temperature in your BUFR data. If you want to do this for multiple types of variables, filter the output using a pipe (<code>|</code>):</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>my_bufr.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;temperature|wind&#39;</span>
+</code></pre></div>
+<h2 id="practical-sessions-converting-synop-data-to-bufr-inspecting-synop-data-and-bufr-conversion">Inspecting SYNOP data and BUFR conversion</h2>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-exercise-1">Exercise 1</h3>
+<p>Navigate to the <code>exercise-materials/synop2bufr-exercises/ex_1</code> directory and inspect the SYNOP message file message.txt:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/synop2bufr-exercises/ex_1
+more<span class="w"> </span>message.txt
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many SYNOP reports are in this file?</p>
+</div>
+<p>Inspect the station list:</p>
+<div class="highlight"><pre><span></span><code>more<span class="w"> </span>station_list.csv
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many stations are listed in the station list?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Convert <code>message.txt</code> to BUFR format.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See the <a href="#practical-sessions-converting-synop-data-to-bufr-synop2bufr-primer">synop2bufr primer</a> section.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>BUFR files have no set file extension, however it is recommended to use <code>.bufr4</code>.</p>
+</div>
+<p>Inspect the resulting BUFR data using <code>bufr_dump</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Compare the latitude and longitude values to those in the station list.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See the <a href="#practical-sessions-converting-synop-data-to-bufr-eccodes-primer">ecCodes primer</a> section.</p>
+</div>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-exercise-2">Exercise 2</h3>
+<p>Navigate to the <code>exercise-materials/synop2bufr-exercises/ex_2</code> directory and inspect the SYNOP message file message.txt:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/synop2bufr-exercises/ex_2
+more<span class="w"> </span>message.txt
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many SYNOP reports are in this file?</p>
+</div>
+<p>Inspect the station list:</p>
+<div class="highlight"><pre><span></span><code>more<span class="w"> </span>station_list.csv
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many stations are listed in the station list?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Convert <code>message.txt</code> to BUFR format.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Based on the results of the exercises in this and the previous exercise, how would you predict the number of
+resulting BUFR files based upon the number of SYNOP reports and stations listed in the station metadata file?</p>
+</div>
+<p>Inspect the resulting BUFR data using <code>bufr_dump</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Check each of the output BUFR files contain different WIGOS Station Identifiers (WSI).</p>
+</div>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-exercise-3">Exercise 3</h3>
+<p>Navigate to the <code>exercise-materials/synop2bufr-exercises/ex_3</code> directory and inspect the SYNOP message file message.txt:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/synop2bufr-exercises/ex_3
+more<span class="w"> </span>message.txt
+</code></pre></div>
+<p>This SYNOP message only contains one longer report with more sections.</p>
+<p>Inspect the station list:</p>
+<div class="highlight"><pre><span></span><code>more<span class="w"> </span>station_list.csv
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Is it problematic that this file contains more stations than there are reports in the SYNOP message?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The station list file is a source of metadata for <code>synop2bufr</code> to provide the information missing in the alphanumeric SYNOP report and required in the BUFR SYNOP.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Convert <code>message.txt</code> to BUFR format.</p>
+</div>
+<p>Inspect the resulting BUFR data using <code>bufr_dump</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Find the following variables:</p>
+<ul>
+<li>Air temperature (K) of the report</li>
+<li>Total cloud cover (%) of the report</li>
+<li>Total period of sunshine (mins) of the report</li>
+<li>Wind speed (m/s) of the report</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may find the last command of the <a href="#practical-sessions-converting-synop-data-to-bufr-eccodes-primer">ecCodes primer</a> section useful.</p>
+</div>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-exercise-4">Exercise 4</h3>
+<p>Navigate to the <code>exercise-materials/synop2bufr-exercises/ex_4</code> directory and inspect the SYNOP message file message.txt:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/synop2bufr-exercises/ex_4
+more<span class="w"> </span>message_incorrect.txt
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is incorrect about this SYNOP file?</p>
+</div>
+<p>Attempt to convert <code>message_incorrect.txt</code> using <code>station_list.csv</code></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What problem(s) did you encounter with this conversion?</p>
+</div>
+<h3 id="practical-sessions-converting-synop-data-to-bufr-exercise-5">Exercise 5</h3>
+<p>Navigate to the <code>exercise-materials/synop2bufr-exercises/ex_5</code> directory and inspect the SYNOP message file message.txt:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/synop2bufr-exercises/ex_5
+more<span class="w"> </span>message.txt
+</code></pre></div>
+<p>Attempt to convert <code>message.txt</code> to BUFR format using <code>station_list_incorrect.csv</code> </p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What problem(s) did you encounter with this conversion?<br />
+Considering the error presented, justify the number of BUFR files produced.</p>
+</div>
+<h2 id="practical-sessions-converting-synop-data-to-bufr-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned:</p>
+<ul>
+<li>the principles of SYNOP data reporting</li>
+<li>how to use <code>synop2bufr</code> to convert SYNOP data to BUFR format</li>
+<li>how to use <code>bufr_dump</code> to inspect the content of BUFR data</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-converting-csv-data-to-bufr"><h1 id="practical-sessions-converting-csv-data-to-bufr-converting-csv-data-to-bufr">Converting CSV data to BUFR</h1>
+<h2 id="practical-sessions-converting-csv-data-to-bufr-introduction">Introduction</h2>
+<p>CSV data is a commonly used format for recording tabular data.  <code>csv2bufr</code> is a tool to help
+convert CSV to BUFR data.</p>
+<p>In this session you will learn to create BUFR data from CSV, using custom and flexible
+configuration (mappings) in support of meeting WMO GBON requirements.</p>
+<h2 id="practical-sessions-converting-csv-data-to-bufr-preparation">Preparation</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that you are logged into your student VM.</p>
+</div>
+<p>Navigate to the <code>exercise-materials/csv2bufr-exercises</code> directory and make sure that the exercises directories are there.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/csv2bufr-exercises
+ls
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You should be able to see the following directories <code>answers  ex_1  ex_2  ex_3  ex_4  ex_5</code></p>
+</div>
+<h2 id="practical-sessions-converting-csv-data-to-bufr-csv2bufr-primer">csv2bufr primer</h2>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-necessary-csv-data">Necessary CSV data</h3>
+<p>There are some requirements on the data that must be present in the CSV file:</p>
+<ul>
+<li>WIGOS Station Identifier, either in 1 column or split over 4 columns for each component as follows:</li>
+<li>Observation year</li>
+<li>Observation month</li>
+<li>Observation day</li>
+<li>Observation hour</li>
+<li>Observation minute</li>
+<li>Latitude</li>
+<li>Longitude</li>
+<li>Station height</li>
+<li>Barometer height</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that the datetime of the observation is split into 5 different columns (from most to least significant).</p>
+</div>
+<p>Below are essential <code>csv2bufr</code> commands and configurations:</p>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-mappings-create">mappings Create</h3>
+<p>The <code>mappings create</code> command creates an empty BUFR mapping template JSON file, which maps CSV column headers to their corresponding ecCodes element:</p>
+<div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>mappings<span class="w"> </span>create<span class="w"> </span>&lt;BUFR<span class="w"> </span>descriptors&gt;<span class="w"> </span>--output<span class="w"> </span>&lt;my_template.json&gt;
+</code></pre></div>
+<p>For more information, see the following <a href="https://csv2bufr.readthedocs.io/en/latest/example.html#creating-a-new-mapping-file">example</a>.</p>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-data-transform">data transform</h3>
+<p>The <code>data transform</code> command converts a CSV file to BUFR format:</p>
+<div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>--bufr-template<span class="w"> </span>&lt;my_template.json&gt;<span class="w"> </span>--output-dir<span class="w"> </span>&lt;./my_directory&gt;<span class="w"> </span>&lt;my_data.csv&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output directory is not required, and by default is the current working directory.</p>
+</div>
+<h2 id="practical-sessions-converting-csv-data-to-bufr-eccodes-bufr-refresher">ecCodes BUFR refresher</h2>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-bufr_dump">bufr_dump</h3>
+<p>The <code>bufr_dump</code> function will allow you to inspect the BUFR files created from the conversion. It has numerous options, the following will be most applicable to the exercises:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;my_bufr.bufr4&gt;
+</code></pre></div>
+<p>This will display the content of your BUFR on screen.  If you are interested in the values taken by a variable in particular, use the <code>egrep</code> command:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;my_bufr.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span>temperature
+</code></pre></div>
+<p>This will display the variables related to temperature in your BUFR data.  If you want to do this for multiple types of variables, filter the output using a pipe (<code>|</code>):</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;my_bufr.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;temperature|wind&#39;</span>
+</code></pre></div>
+<h2 id="practical-sessions-converting-csv-data-to-bufr-inspecting-csv-data-and-bufr-conversion">Inspecting CSV data and BUFR conversion</h2>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-exercise-1-converting-a-csv-file-to-bufr">Exercise 1: Converting a CSV file to BUFR</h3>
+<p>In this exercise we will look at a pre-configured mapping file for the CSV data, and will use this to convert the data to BUFR.</p>
+<p>Navigate to the <code>ex_1</code> directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/csv2bufr-exercises/ex_1
+</code></pre></div>
+<p>and open the CSV data <code>ex_1.csv</code>.</p>
+<ol>
+<li>How many header rows are there in this data?</li>
+<li>Which row contains the column names?</li>
+</ol>
+<p>Now open the mappings file <code>mappings_1.json</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>csv2bufr mappings files have no set file extension, however it recommended to use <code>.json</code>.</p>
+</div>
+<ol>
+<li>
+<p>Verify that <code>"number_header_rows"</code> and <code>"column_names_row"</code> are the same as your answers above.</p>
+</li>
+<li>
+<p>Locate each of the CSV column names in this mappings file.</p>
+</li>
+<li>
+<p>By the <code>data transform</code> command, use the mappings file to convert this CSV data to BUFR.</p>
+</li>
+<li>
+<p>Use bufr_dump to find the latitude and longitude value stored in the output BUFR file. Verify these values using the CSV file.</p>
+</li>
+</ol>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-exercise-2-correcting-the-datetime-format">Exercise 2: Correcting the datetime format</h3>
+<p>In this exercise we will investigate the correct format to present the datetime of an observation in the CSV file.</p>
+<p>Navigate to the <code>ex_2</code> directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/csv2bufr-exercises/ex_2
+</code></pre></div>
+<p>and open the CSV data <code>ex_2.csv</code>.</p>
+<ol>
+<li>What are the differences in the way that the datetime is represented in this CSV file compared to the previous one?</li>
+</ol>
+<p>Now open the mappings file <code>mappings_2.json</code>. By looking at the eccodes keys related to dates and times, it should seem clear that it is not possible to map the datetime with the CSV in its current state.</p>
+<ol>
+<li>
+<p>Create new columns in the CSV file for each component of the datetime: <code>Year</code>, <code>Month</code>, <code>Day</code>, <code>Hour</code>, <code>Minute</code>.</p>
+</li>
+<li>
+<p>By the <code>data transform</code> command, use the mappings file to convert this CSV data to BUFR.</p>
+</li>
+</ol>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-exercise-3-handling-changes-to-the-csv-data">Exercise 3: Handling changes to the CSV data</h3>
+<p>In this exercise we consider the following scenario: given the same CSV data but with different column names, how can we adjust the mappings file to convert this data to BUFR? For simplicity, we will only look at one column name change.</p>
+<p>Navigate to the <code>ex_3</code> directory</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/csv2bufr-exercises/ex_3
+</code></pre></div>
+<ol>
+<li>By the <code>data transform</code> command, attempt to convert the CSV data to BUFR. What error appears?</li>
+</ol>
+<p>Open the CSV data <code>ex_3.csv</code>.</p>
+<ol>
+<li>What column name has been changed?</li>
+</ol>
+<p>Open the mappings file <code>mappings_3.json</code>.</p>
+<ol>
+<li>Find the original column name in this mapping file, and change it to the new name.</li>
+<li>By the <code>data transform</code> command, use the mappings file to convert this CSV data to BUFR.</li>
+<li>Use <code>bufr_dump</code> to verify that <code>relativeHumidity</code> has the same value as the CSV data.</li>
+</ol>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-exercise-4-unit-conversion">Exercise 4: Unit conversion</h3>
+<p>In this exercise, we expand on the work above by not only handling changes to column names, but also the units of the data. We achieve this by using <code>offset</code> and <code>scale</code> in the mappings file.</p>
+<p>Navigate to the <code>ex_4</code> directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/csv2bufr-exercises/ex_4
+</code></pre></div>
+<p>and open the CSV data <code>ex_4.csv</code>.</p>
+<ol>
+<li>Which row are the units of the variables written?</li>
+</ol>
+<p>You should notice that <code>BP</code> now has units hPa instead of Pa. Moreover, the air temperature and dewpoint temperature now have column names <code>AirTempC</code> and <code>DewPointTempC</code>, with units C instead of K.</p>
+<ol>
+<li>What power of 10 is needed to convert hPa to Pa?</li>
+<li>What constant must be added to convert degrees C to K?</li>
+</ol>
+<p>Open the mappings file <code>mappings_4.json</code>. Find the lines corresponding to the variables above.</p>
+<ol>
+<li>
+<p>Convert <code>BP</code> to Pa by adding the following line to the right of <code>"data:BP"</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;offset&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:0&quot;</span>,<span class="w"> </span><span class="s2">&quot;scale&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:x&quot;</span>
+</code></pre></div>
+<p>where <code>x</code> is your answer in part 3.</p>
+</li>
+<li>
+<p>Change the column names of air temperature and dewpoint temperature in the mappings file to match that of the CSV file, as you did in the previous exercise.</p>
+</li>
+<li>
+<p>Convert <code>AirTempC</code> to K by adding the following line to the right of <code>"data:AirTempC"</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;offset&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:y&quot;</span>,<span class="w"> </span><span class="s2">&quot;scale&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:0&quot;</span>
+</code></pre></div>
+<p>where <code>y</code> is your answer in part 4.</p>
+</li>
+<li>
+<p>Convert <code>DewPointTempC</code> to K by adding the following line to the right of <code>"data:DewPointTempC"</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;offset&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:y&quot;</span>,<span class="w"> </span><span class="s2">&quot;scale&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:0&quot;</span>
+</code></pre></div>
+<p>where <code>y</code> is your answer in part 4.</p>
+</li>
+<li>
+<p>By running the <code>csv2bufr data transform</code> command, use the mappings file to convert this CSV data to BUFR.</p>
+</li>
+<li>
+<p>Use the <code>bufr_dump</code> command to verify that <code>nonCoordinatePressure</code>, <code>airTemperature</code> and <code>dewpointTemperature</code> have the values you would expect after conversion.</p>
+</li>
+</ol>
+<h3 id="practical-sessions-converting-csv-data-to-bufr-exercise-5-implementing-quality-control">Exercise 5: Implementing quality control</h3>
+<p>In this exercise, we will implement some minimum and maximum tolerable values to prevent data of certain variables from being encoded into BUFR. To do this, we will use <code>valid_min</code> and <code>valid_max</code> in the mappings file.</p>
+<p>Navigate to the <code>ex_5</code> directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/csv2bufr-exercises/ex_5
+</code></pre></div>
+<ol>
+<li>
+<p>By running the <code>csv2bufr data transform</code> command, use the mappings file to convert this CSV data to BUFR. What error occurs? Is a BUFR file created?</p>
+</li>
+<li>
+<p>Use the <code>bufr_dump</code> command to check the values of <code>pressureReducedToMeanSeaLevel</code>, <code>airTemperature</code> and <code>dewpointTemperature</code>. Which variables are missing, and why?</p>
+</li>
+</ol>
+<p>Open the mappings file <code>mappings_5.json</code>. Find the lines corresponding to the variables above. You will find the following on these lines:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;valid_min&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:a&quot;</span>,<span class="w"> </span><span class="s2">&quot;valid_max&quot;</span>:<span class="w"> </span><span class="s2">&quot;const:b&quot;</span>
+</code></pre></div>
+<p>where <code>a</code> and <code>b</code> are values. These values represent the minimum and maximum tolerable extremes for encoding into BUFR. </p>
+<ol>
+<li>
+<p>Change <code>a</code> and <code>b</code> on each line to form a less tight range of tolerance for these variables.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>The valid minimum and maximum values should take the same units as the CSV data.</p>
+</li>
+<li>
+<p>By running the <code>csv2bufr data transform</code> command, use this mappings file to convert this CSV data to BUFR again. Do you notice any errors this time?</p>
+</li>
+</ol>
+<h2 id="practical-sessions-converting-csv-data-to-bufr-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned:</p>
+<ul>
+<li>The basic usage of <code>csv2bufr</code></li>
+<li>The required structure of CSV data for conversion to BUFR</li>
+<li>How to update a simple csv2bufr mapping file for a variety of scenarios, including for GBON requirements, unit conversion, and quality control/range checking</li>
+<li>How to use <code>csv2bufr</code> on a test data file and convert to BUFR format</li>
+<li>How to use <code>bufr_dump</code> to verify the values of BUFR encoded variables</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-converting-daycli-data-to-bufr"><h1 id="practical-sessions-converting-daycli-data-to-bufr-converting-daycli-data-to-bufr">Converting DAYCLI data to BUFR</h1>
+<h2 id="practical-sessions-converting-daycli-data-to-bufr-introduction">Introduction</h2>
+<p>Daily climate reports (DAYCLI) are a requirement for daily climate observations to monitor extremes, such as daily maximum and minimum temperature, daily total precipitation, and more. </p>
+<p>This session will focus on understanding the structure of a typical DAYCLI CSV file, converting it to BUFR format, and inspecting the resulting contents.</p>
+<p>If this data is recorded in CSV format, we can use <a href="https://github.com/wmo-im/csv2bufr">csv2bufr</a> to convert this data to BUFR.  Moreover, if the structure of the CSV file is correct, then one does <strong>not need to configure</strong> a mappings file for the conversion to BUFR, as a DAYCLI mapping template comes included with csv2bufr to manage such data.</p>
+<h2 id="practical-sessions-converting-daycli-data-to-bufr-preparation">Preparation</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that you are logged into your student VM.</p>
+</div>
+<p>Navigate to the <code>exercise-materials/daycli-exercises</code> directory.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/daycli-exercises
+</code></pre></div>
+<h2 id="practical-sessions-converting-daycli-data-to-bufr-exercise">Exercise</h2>
+<p>Edit the file <code>daycli.csv</code>.  Compare the column structure to that of the final slides of the presentation we just viewed.</p>
+<p>Convert this CSV file to BUFR using the built-in daycli mapping file:</p>
+<div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>--bufr-template<span class="w"> </span>daycli<span class="w"> </span>--output-dir<span class="w"> </span>./<span class="w"> </span>daycli.csv
+</code></pre></div>
+<p>Inspect the output BUFR files using <code>bufr_dump</code> and verify the data is the same as the original DAYCLI CSV file.</p>
+<h2 id="practical-sessions-converting-daycli-data-to-bufr-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>verify the structure of a typical DAYCLI CSV file</li>
+<li>convert this DAYCLI CSV file into BUFR using csv2bufr and the built-in daycli mapping template</li>
+<li>inspect the contents of the DAYCLI BUFR files created</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-wis2box-introduction"><h1 id="practical-sessions-wis2box-introduction-wis2box-introduction">wis2box introduction</h1>
+<h2 id="practical-sessions-wis2box-introduction-introduction">Introduction</h2>
+<p>In this session you will run the wis2box software that was pre-installed on your student VM using the test data configuration.</p>
+<p>You will review and access the services provided by your wis2box: the MQTT broker and HTTP accessible services and view how the services work when manually ingesting some test-data.</p>
+<div class="admonition note">
+<p class="admonition-title">wis2box installation and configuration</p>
+<p>The latest wis2box release has been pre-installed on your student VM using the release archive available on GitHub:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/wmo-im/wis2box/releases/download/1.0b4/wis2box-setup-1.0b4.zip
+unzip<span class="w"> </span>wis2box-setup-1.0b4.zip
+</code></pre></div>
+<p>You can always find the latest 'wis2box-setup' archive at <a href="https://github.com/wmo-im/wis2box/releases">https://github.com/wmo-im/wis2box/releases</a>.</p>
+<p>Your student VM has been pre-configured with a dataset for Malawi and includes some previously ingested data. Later during this training you will learn how to setup datasets of your own.</p>
+<p>All the required steps for installation and configuration of the wis2box can be found in the <a href="https://docs.wis2box.wis.wmo.int/en/latest/">wis2box-documentation</a></p>
+</div>
+<h2 id="practical-sessions-wis2box-introduction-preparation">Preparation</h2>
+<p>Login to your designated VM with your username and password.</p>
+<h2 id="practical-sessions-wis2box-introduction-wis2box-start-and-status">wis2box start and status</h2>
+<p>Navigate to the directory containing the wis2box software stack:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4
+</code></pre></div>
+<p>Start wis2box with the following command:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>start
+</code></pre></div>
+<p>Inspect the status with the following command:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>status
+</code></pre></div>
+<p>Repeat this command until all services are up and running.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What services are running? Which ports are used for each service?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">wis2box and Docker</p>
+<p>wis2box runs as a set of Docker containers managed by docker-compose.</p>
+<p>The services are defined in the various <code>docker-compose*.yml</code> which can be found in the <code>~/wis2box-1.0b4/</code> directory.</p>
+<p>The Python script <code>wis2box-ctl.py</code> is used to run the underlying Docker Compose commands that control the wis2box services.</p>
+</div>
+<h2 id="practical-sessions-wis2box-introduction-wis2box-ui">wis2box UI</h2>
+<p>Open a web browser and visit the page <code>http://&lt;your-host&gt;</code>.</p>
+<p>This is the default wis2box web application (running via the <strong>wis2box-ui</strong> container). </p>
+<p>Click the "EXPLORE" option on <code>http://&lt;your-host&gt;</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">View latest data per station on the wis2box UI</p>
+<p>Click on on a station in the station list or hover your mouse over a station in the map to see the latest data for that station.</p>
+</div>
+<p><img alt="wis2box-ui-map.png" src="../assets/img/wis2box-ui-map.png" width="600"></p>
+<div class="admonition question">
+<p class="admonition-title">View data profile over time per measured variable</p>
+<p>After selecting a station in the map, click on "data" and select a variable to see a graph of the measured variable over time.</p>
+</div>
+<p><img alt="wis2box-ui-data.png" src="../assets/img/wis2box-ui-data.png" width="600"></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is last timestamp in UTC for which the Malawi station "Bilira" received data?</p>
+</div>
+<h2 id="practical-sessions-wis2box-introduction-wis2box-api">wis2box API</h2>
+<p>Open a new tab and navigate to the page <code>http://&lt;your-host&gt;/oapi</code>.</p>
+<p><img alt="wis2box-api.png" src="../assets/img/wis2box-api.png" width="600"></p>
+<p>This is the wis2box API (running via the <strong>wis2box-api</strong> container).</p>
+<p>To view collections currently published to the API, click <code>View the collections in this service</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What collections are currently available?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many data notifications have been published?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many stations are configured?</p>
+</div>
+<h2 id="practical-sessions-wis2box-introduction-wis2box-broker">wis2box-broker</h2>
+<p>Open the MQTT Explorer on your computer and prepare a new connection to connect to your broker (running via the <strong>wis2box-broker</strong> container).</p>
+<p>Use the following connection details:</p>
+<ul>
+<li><strong>Protocol: mqtt://</strong></li>
+<li><strong>Host: <code>&lt;your-host&gt;</code></strong></li>
+<li><strong>Port: 1883</strong></li>
+<li><strong>Username: wis2box</strong></li>
+<li><strong>Password: wis2box</strong></li>
+<li>under 'ADVANCED', subscribe to the topics <code>$SYS/#</code> and <code>origin/#</code></li>
+</ul>
+<p>Make sure to click "SAVE" to store your connection details.</p>
+<p><img alt="mqtt-explorer-wis2box-broker.png" src="../assets/img/mqtt-explorer-wis2box-broker.png" width="600"></p>
+<p>Once you are connected, you should see statistics being published by your broker on the <code>$SYS</code> topic.</p>
+<p>Make sure MQTT Explorer is connected to your broker before proceeding to the next exercise: </p>
+<h2 id="practical-sessions-wis2box-introduction-publishing-wis2-data">Publishing WIS2 data</h2>
+<p>To demonstrate how wis2box can publish WIS2 data we will manually ingest some data from the command line:</p>
+<p>In your SSH client window, ensure you are in the <code>~/wis2box-1.0b4</code> directory and login to the <strong>wis2box-management</strong> container as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command is equivalent to <code>docker exec -it wis2box-management /bin/bash</code>, meaning that you have entered an interactive shell inside the <strong>wis2box-management</strong> container.</p>
+</div>
+<p>Run the following command to ingest some additional data:
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>data<span class="w"> </span>ingest<span class="w"> </span>-th<span class="w"> </span>mwi.mwi_wmo_demo.data.core.weather.surface-based-observations.synop<span class="w"> </span>-p<span class="w"> </span>/data/wis2box/observations/malawi-new-core/
+</code></pre></div></p>
+<p>After the data ingest runs successfully, you should be able to view new messages that have been published on your wis2box broker in MQTT Explorer.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the topic used to publish notifications for new data? How many WIS2 data notifications have been published?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">download data</p>
+<p>What is the URL that allows you to download the published data in BUFR-format?
+Copy and paste the URL in your browser to verify you can download the corresponding <code>.bufr4</code> file.</p>
+</div>
+<p>Go back to your browser and visit the wis2box UI.</p>
+<div class="admonition question">
+<p class="admonition-title">review new data</p>
+<p>Did your new data appear in wis2box? Find the stations for which you ingested new data and verify new data is available.</p>
+</div>
+<h2 id="practical-sessions-wis2box-introduction-publishing-wis2-data-with-access-control">Publishing WIS2 data with access control</h2>
+<p>We will now publish some more data on the topic containing <code>data.recommended</code></p>
+<p>In your SSH client window, login to the <strong>wis2box-management</strong> container:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<p>Run the following command to ingest some additional data:
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>data<span class="w"> </span>ingest<span class="w"> </span>-th<span class="w"> </span>mwi.mwi_wmo_demo.data.recommended.weather.surface-based-observations.synop<span class="w"> </span>-p<span class="w"> </span>/data/wis2box/observations/malawi-new-reco/
+</code></pre></div></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the topic used to publish notifications for the new data? How many WIS2 data notifications have been published?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">download data</p>
+<p>What is the URL that allows you to download the newly published data in BUFR-format?
+Copy and paste the URL in your browser to verify you can download the corresponding <code>.bufr4</code> file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Downloading restricted data</p>
+<p>You will not be able to download the data using the URL in the message published on <code>origin/a/wis2/mwi/mwi_wmo_demo/data/recommended/</code> as the data access has been restricted by the data publisher. In this case you will get the error <code>401 Authorization Required</code>.</p>
+</div>
+<p>The data is currently restricted with the access token <code>mysecrettoken</code>. In order to download the data you would need to add this token to the header:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Authorization: Bearer mysecrettoken&quot;</span><span class="w"> </span>http://testuser.wis2.training/data/2023-06-07/wis/mwi/mwi_wmo_demo/data/recommended/weather/surface-based-observations/synop/WIGOS_0-454-2-AWSCHIKWAWA_20230607T085500.bufr4
+</code></pre></div>
+<h2 id="practical-sessions-wis2box-introduction-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>start wis2box and check the status of its components</li>
+<li>ingest some data test observations</li>
+<li>access the wis2box UI, API, MinIO UI and Grafana dashboard</li>
+<li>use access control for restricted datasets</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-data-ingest-and-monitoring"><h1 id="practical-sessions-data-ingest-and-monitoring-data-ingest-and-monitoring">Data ingest and monitoring</h1>
+<h2 id="practical-sessions-data-ingest-and-monitoring-introduction">Introduction</h2>
+<p>In this session you will learn various ways to ingest data into your wis2box and learn how you can monitor if your data is being ingested without errors.</p>
+<h2 id="practical-sessions-data-ingest-and-monitoring-preparation">Preparation</h2>
+<p>Login to you student VM using your SSH client.</p>
+<p>Make sure wis2box is up and running:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>start
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>status
+</code></pre></div>
+<p>Make sure your have MQTT Explorer running and connected to your instance.</p>
+<h3 id="practical-sessions-data-ingest-and-monitoring-open-the-grafana-dashboard">Open the Grafana dashboard</h3>
+<p>Open the Grafana dashboard home-page at <code>http://&lt;your-host&gt;:3000</code></p>
+<p><img alt="grafana-homepage" src="../assets/img/grafana-homepage.png" width="600"></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Are there any errors reported so far?</p>
+<p>Have there been any WIS2 notifications published in the last 24 hours?</p>
+</div>
+<p>Keep a web browser tab open with the Grafana dashboard during the next few exercises to monitor the status of your data publishing.</p>
+<h2 id="practical-sessions-data-ingest-and-monitoring-ingesting-your-data-into-wis2box">Ingesting your data into wis2box</h2>
+<p>You can use multiple methods to ingest data into wis2box and start publishing notifications to WIS2. </p>
+<p>Previously you used the <code>wis2box data ingest</code> command from within the <strong>wis2box-management</strong> container, which requires the data to be available on the wis2box instance.</p>
+<p>Another method for manually ingesting data is to use the <code>MinIO</code> admin interface to upload a file into the <code>wis2box-incoming</code> bucket. </p>
+<p>If your data-collection software supports sending data to an FTP endpoint you could use the optional <strong>wis2box-ftp</strong> container setup.</p>
+<p>You can also automate data ingest using a script to copy data into the <code>wis2box-incoming</code> bucket at regular intervals, for example using Python and the MinIO-client.</p>
+<h3 id="practical-sessions-data-ingest-and-monitoring-download-test-data">Download test data</h3>
+<p>Click on the two links below and download two new data samples on your computer:</p>
+<p><a href="../sample-data/WIGOS_0-454-2-AWSBILIRA_new.csv">WIGOS_0-454-2-AWSBILIRA_new.csv</a></p>
+<p><a href="../sample-data/WIGOS_0-454-2-AWSCHIKANGAWA_new.csv">WIGOS_0-454-2-AWSCHIKANGAWA_new.csv</a></p>
+<h3 id="practical-sessions-data-ingest-and-monitoring-minio-admin-interface">MinIO admin interface</h3>
+<p>Open a new tab in your web browser and visit the page <code>http://&lt;your-host&gt;:9001</code>. You should see the login screen for MinIO. 
+You can login with username <code>minio</code> and password <code>minio123</code>:</p>
+<p><img alt="minio-admin-buckets" src="../assets/img/minio-login.png" width="600"></p>
+<p>You should be see the buckets 'wis2box-archive', 'wis2box-incoming', 'wis2box-public'.</p>
+<p>You can click 'browse' to view the contents of the buckets. </p>
+<p>Navigate to the <strong>wis2box-incoming</strong> bucket:</p>
+<p><img alt="minio-admin-buckets" src="../assets/img/minio-admin-buckets.png" width="600"></p>
+<p>Click the <strong>Create new path</strong> button and create the new folder path: <code>/test/data/</code>.</p>
+<p><img alt="minio-admin-create-new-path" src="../assets/img/minio-admin-create-new-path.png" width="600"></p>
+<p>And then upload the file <code>WIGOS_0-454-2-AWSBILIRA_new.csv</code> into the folder <code>wis2box-incoming/test/data</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">View the Grafana dashboard</p>
+<p>Go back to the Grafana dashboard on your instance at port 3000.</p>
+<p>You should see the following error:</p>
+<p><img alt="grafana_error" src="../assets/img/grafana_error.png" width="600"></p>
+</div>
+<p>Navigate the directory structure until you are in the folder <code>wis2box-incoming/mwi/mwi_wmo_demo/data/core/weather/surface-based-observations/synop</code></p>
+<p>Upload the file <code>WIGOS_0-454-2-AWSBILIRA_new.csv</code> to <code>wis2box-incoming/mwi/mwi_wmo_demo/data/core/weather/surface-based-observations/synop</code></p>
+<div class="admonition question">
+<p class="admonition-title">View the Grafana dashboard</p>
+<p>Check the Grafana dashboard; can you confirm the wis2box workflow was initiated after you uploaded your data?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">View new messages on your wis2box-broker</p>
+<p>Check MQTT Explorer, can you confirm that new messages were successfully published on your wis2box broker?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The wis2box interprets the folder-structure in the <code>wis2box-incoming</code> bucket as the corresponding topic-hierarchy for the file.</p>
+<p><code>mwi.mwi_wmo_demo.data.core.weather.surface-based-observations.synop</code></p>
+<p>corresponds to the path:</p>
+<p><code>mwi/mwi_wmo_demo/data/core/weather/surface-based-observations/synop</code></p>
+<p>If there are no data-mappings defined for the topic-hierarchy corresponding to the directory that received data, wis2box will not initiate the workflow.</p>
+</div>
+<h3 id="practical-sessions-data-ingest-and-monitoring-wis2box-ftp">wis2box FTP</h3>
+<p>To allow your data to be accessible over FTP you can use the <strong>wis2box-ftp</strong> container, which provides a service that forwards data received over FTP to MinIO.</p>
+<p>For the purpose of this training you can use your predefined configuration in <code>~/wis2box-1.0b4/ftp.env</code> to start your wis2box-ftp as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.wis2box-ftp.yml<span class="w"> </span>--env-file<span class="w"> </span>ftp.env<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<p>To test the FTP service, you can use WinSCP on your local laptop and prepare the connection to the <strong>wis2box-ftp</strong> container as follows (password=<code>wis2box</code>)</p>
+<p><img alt="winscp-new-session" src="../assets/img/winscp-new-session.png" width="400"></p>
+<p>Once you have established the connection you will land in an empty directory. </p>
+<p>Select the option to create a 'new directory':</p>
+<p><img alt="winscp-empty" src="../assets/img/winscp-empty.png" width="500"></p>
+<p>Create the directory <code>mwi/mwi_wmo_demo/data/core/weather/surface-based-observations/synop</code></p>
+<p>Enter the new directory you created and you can copy the file <code>WIGOS_0-454-2-AWSCHIKANGAWA_new.csv</code> from your host machine on the wis2box-ftp:</p>
+<p><img alt="winscp-after-file-upload" src="../assets/img/winscp-after-file-upload.png" width="600"></p>
+<p>Check your Grafana dashboard and MQTT Explorer to review the result of copying the file in the wis2box-ftp.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Did you manage to successfully publish WIS2 notifications for your new data?</p>
+<p>If not, review the errors reported and try to determine what went wrong.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can run <code>docker logs wis2box-ftp</code> to check if the FTP service is running correctly.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can view ftp-configuration in <code>ftp.env</code> from the command line:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/wis2box-1.0b4/ftp.env
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go">FTP_USER=wis2box</span>
+<span class="go">FTP_PASS=wis2box</span>
+<span class="go">FTP_HOST=testuser.wis2.training</span>
+<span class="go">WIS2BOX_STORAGE_ENDPOINT=http://testuser.wis2.training:9000</span>
+<span class="go">WIS2BOX_STORAGE_USER=minio</span>
+<span class="go">WIS2BOX_STORAGE_PASSWORD=minio123</span>
+<span class="go">LOGGING_LEVEL=WARNING</span>
+</code></pre></div>
+<p>To change the username/password for the wis2box FTP service, edit the file <code>ftp.env</code> and update <code>FTP_USER</code> and <code>FTP_PASS</code>.</p>
+<p>If you you update your storage credentials from the default <code>minio</code>/<code>minio123</code>, you will also need to update the values in <code>ftp.env</code>.</p>
+<p>See <a href="https://docs.wis2box.wis.wmo.int/en/latest/user/data-ingest.html#wis2box-ftp">wis2box-ftp documentation</a> for more information on how to use the wis2box-ftp service.</p>
+</div>
+<h3 id="practical-sessions-data-ingest-and-monitoring-minio-python-client-optional-exercise">MinIO Python client (optional exercise)</h3>
+<p>You may want to automate data ingest from your system into wis2box using Python tools.</p>
+<p>MinIO provides a Python client which can be installed as follows:</p>
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>minio
+</code></pre></div>
+<p>On your student VM the 'minio' module for Python will already be installed.</p>
+<p>Go to the directory <code>exercise-materials/data-ingest</code> and run the example script using the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/exercise-materials/data-ingest
+python3<span class="w"> </span>examples/scripts/copy_to_incoming.py
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sample script needs to be modified before it can be used. </p>
+</div>
+<p>The script needs to know the correct endpoint for accessing MinIO on your wis2box. If wis2box is running on your host, the MinIO endpoint is available at <code>http://&lt;your-host&gt;:9000</code>.</p>
+<p>The sample script provides the basic structure for copying a file into MinIO. Try to ingest a data sample of your choosing using this script.</p>
+<div class="admonition question">
+<p class="admonition-title">ingest data using Python</p>
+<p>Use the Python example provided to create your own Python script to ingest data into your wis2box.  </p>
+<p>Ensure that you:</p>
+<ul>
+<li>define the correct MinIO endpoint for your host</li>
+<li>define the correct path in MinIO for the topics defined in your <code>data-mappings.yml</code></li>
+<li>determine the correct local path where the script can access the data to ingest</li>
+</ul>
+<p>Ensure that the script runs correctly and new data notifications are published on your wis2box broker. Review and correct any errors reported on the Grafana dashboard:</p>
+</div>
+<h2 id="practical-sessions-data-ingest-and-monitoring-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>trigger wis2box workflow using different data ingest methods</li>
+<li>monitor the status of your data ingest and publishing</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-downloading-and-finding-data-from-wis2"><h1 id="practical-sessions-downloading-and-finding-data-from-wis2-downloading-and-finding-data-from-wis2">Downloading and finding data from WIS2</h1>
+<h2 id="practical-sessions-downloading-and-finding-data-from-wis2-introduction">Introduction</h2>
+<p>In this session you will learn how to discover data from the WIS2 Global Discovery Catalogue (GDC) and download data from a WIS2 Global Broker (GB).</p>
+<h2 id="practical-sessions-downloading-and-finding-data-from-wis2-preparation">Preparation</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before starting please login to your student VM.</p>
+</div>
+<h2 id="practical-sessions-downloading-and-finding-data-from-wis2-downloading-data-with-pywis-pubsub">Downloading data with pywis-pubsub</h2>
+<p>The <a href="#practical-sessions-connecting-to-mqtt">first practical session</a> used MQTT Explorer to connect to the Météo-France Global Broker.</p>
+<p>Let's use the <a href="https://github.com/wmo-im/pywis-pubsub">pywis-pubsub</a> to subscribe using a command line tool.</p>
+<div class="highlight"><pre><span></span><code>pywis-pubsub<span class="w"> </span>subscribe<span class="w"> </span>--help
+</code></pre></div>
+<p>Update the sample configuration (see the sections marked <strong>TBD</strong>) to connect to the Météo-France Global Broker:</p>
+<div class="highlight"><pre><span></span><code>vi<span class="w"> </span>~/exercise-materials/pywis-pubsub-exercises/config.yml
+</code></pre></div>
+<p>Open MQTT Explorer and connect to the Météo-France Global Broker.</p>
+<p>Update the following values in the configuration:</p>
+<ul>
+<li><strong>broker</strong>: <code>mqtts://everyone:everyone@globalbroker.meteo.fr:8883</code></li>
+<li><strong>subscribe_topics</strong>: fill in one to many topics <code>origin/#</code> and <code>cache/#</code> (on separate lines)</li>
+<li><strong>storage.option.path</strong>: add a directory to where data should be downloaded</li>
+</ul>
+<p>Run the <code>pywis-pubsub</code> command:</p>
+<div class="highlight"><pre><span></span><code>pywis-pubsub<span class="w"> </span>subscribe<span class="w"> </span>-c<span class="w"> </span>~/exercise-materials/pywis-pubsub-exercises/config.yml<span class="w"> </span>--verbosity<span class="w"> </span>INFO<span class="w"> </span>-d
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above command will download data to your local system for demo purposes.  For operational environments
+you will need to consider and manage diskspace requirements as part of your workflow.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the format of the data notifications that are displayed on the screen?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Is there data being downloaded?  How can we run the <code>pywis-pubsub</code> command to be able to download the data (hint: review the options when running the <code>pywis-pubsub subscribe --help</code> command)?</p>
+</div>
+<p>Stop the <code>pywis-pubsub</code> command (CTRL-C) and update the configuration to be able to download the data
+to <code>/tmp/wis2-data</code>.</p>
+<p>Try spatial filtering with a bounding box:</p>
+<div class="highlight"><pre><span></span><code>pywis-pubsub<span class="w"> </span>subscribe<span class="w"> </span>-c<span class="w"> </span>~/exercise-materials/pywis-pubsub-exercises/config.yml<span class="w"> </span>--verbosity<span class="w"> </span>INFO<span class="w"> </span>-d<span class="w"> </span>-b<span class="w"> </span>-142,42,-52,84
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Try using your own bounding box (format is <code>west,south,east,north</code>, in decimal degrees).</p>
+</div>
+<h2 id="practical-sessions-downloading-and-finding-data-from-wis2-finding-data-with-pywiscat">Finding data with pywiscat</h2>
+<p>Let's use <a href="https://github.com/wmo-im/pywiscat">pywiscat</a> to query the GDC</p>
+<div class="highlight"><pre><span></span><code>pywiscat<span class="w"> </span>wis2<span class="w"> </span>search
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many records are returned from the search?</p>
+</div>
+<p>Let's try querying the GDC with a keyword:</p>
+<div class="highlight"><pre><span></span><code>pywiscat<span class="w"> </span>wis2<span class="w"> </span>search<span class="w"> </span>-q<span class="w"> </span>radar
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the data policy of the results?</p>
+</div>
+<p>Try additional queries with <code>-q</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>-q</code> flag allows for the following syntax:</p>
+<ul>
+<li><code>-q sea</code>: find all records with the word "sea"</li>
+<li><code>-q "NOT sea"</code>: find all records that do not contain the word "sea"</li>
+<li><code>-q "sea AND ice"</code>: find all records with both "sea" and "ice"</li>
+<li><code>-q "sea OR ice"</code>: find all records with both "sea" and "ice"</li>
+<li><code>-q "sea NOT ice"</code>: find all records with "sea" but not "ice"</li>
+<li><code>-q "sea~"</code>: fuzzy search</li>
+</ul>
+<p>If searching for terms with spaces, enclose in double quotes.</p>
+</div>
+<p>Let's get more details on a specific search result that we are interested in:</p>
+<div class="highlight"><pre><span></span><code>pywiscat<span class="w"> </span>wis2<span class="w"> </span>get<span class="w"> </span>&lt;id&gt;
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the <code>id</code> value from the previous search.</p>
+</div>
+<h2 id="practical-sessions-downloading-and-finding-data-from-wis2-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>use pywis-pubsub to subscribe to a Global Broker and download data to your local system</li>
+<li>use pywiscat to discover datasets from the Global Discovery Catalogue</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-environment-variables"><h1 id="practical-sessions-environment-variables-wis2box-environment-variables">wis2box environment variables</h1>
+<h2 id="practical-sessions-environment-variables-introduction">Introduction</h2>
+<p>In this session you will customize your wis2box environment variables and re-initialize your wis2box.</p>
+<h3 id="practical-sessions-environment-variables-preparation">Preparation</h3>
+<p>Login to your student VM using WinSCP (using SCP-protocol) and PuTTY.</p>
+<h2 id="practical-sessions-environment-variables-re-initialize-wis2box">re-initialize wis2box</h2>
+<p>Stop your wis2box:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>stop
+</code></pre></div>
+<p>Stop the wis2box-ftp service:
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.wis2box-ftp.yml<span class="w"> </span>down
+</code></pre></div></p>
+<p>Check that there are no longer any Docker-containers running on your system:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div></p>
+<p>Check that you still have Docker volumes remaining on your system:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</code></pre></div></p>
+<p>To delete all Docker volumes that are not associated to a Docker Container, run the following command:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>prune
+</code></pre></div></p>
+<p>Check that your docker volumes are removed:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">wis2box and Docker volumes</p>
+<p>Note that deleting the Docker volumes is a quick way to re-initialize wis2box.</p>
+<p>It will also delete all information stored in the ElasticSearch API backend (i.e. discovery metadata, station metadata, data notifications, and previously ingested observation data).</p>
+<p><strong>Do NOT delete the <code>es-data</code>-volume if you want preserve previously ingested observation data.</strong></p>
+</div>
+<h2 id="practical-sessions-environment-variables-configure-your-own-devenv">Configure your own <code>dev.env</code></h2>
+<p>The wis2box setup reads environment variables from <code>dev.env</code>. </p>
+<p>Make sure you are in the wis2box-directory and the check the current content of your <code>dev.env</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+cat<span class="w"> </span>dev.env
+</code></pre></div>
+<p>This is the minimum setup that enabled you to run your wis2box in the previous exercises. </p>
+<p>This setup was using the pre-defined configuration stored in <code>~/exercise-materials/wis2box-test-data</code> as defined <code>WIS2BOX_HOST_DATADIR</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">WIS2BOX_URL and WIS2BOX_API_URL</p>
+<p>Note the current values of "WIS2BOX_URL" and "WIS2BOX_API_URL" are referring to your student-VM. </p>
+<p>Make sure you keep these values when editing your <code>dev.env</code></p>
+</div>
+<p>In the next few steps we will review how to update some of key environment variables used in wis2box by editing <code>dev.env</code> in the directory <code>wis2box-1.0b4</code>.</p>
+<p>You can use WinSCP to connect to your instance and edit this file or you can edit the file from the command line using PuTTY.</p>
+<h2 id="practical-sessions-environment-variables-define-your-own-wis2box-data-directory">Define your own wis2box data directory</h2>
+<p>Using the SSH client connected to your student VM, use the following command to create a new directory on your instance:
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/wis2box-data
+</code></pre></div></p>
+<p>Inside this directory create the following directory structure for your discovery metadata and station metadata:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/wis2box-data/metadata/discovery
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/wis2box-data/metadata/station
+</code></pre></div>
+<h3 id="practical-sessions-environment-variables-create-an-empty-data-mappingsyml">create an (empty) <code>data-mappings.yml</code></h3>
+<p>The wis2box requires the file <code>data-mappings.yml</code> stored in your wis2box data directory. </p>
+<p>Use the following commands to create an (empty) <code>data-mappings.yml</code> that you will populate at a later step. 
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;data:&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>~/wis2box-data/data-mappings.yml
+</code></pre></div></p>
+<h3 id="practical-sessions-environment-variables-create-an-empty-station-listcsv">create an (empty) <code>station-list.csv</code></h3>
+<p>The wis2box requires the file <code>metadata/station/station_list.csv</code> store in your wis2box data directory.</p>
+<p>Use the following commands to create <code>metadata/station/station_list.csv</code> (headers only):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;station_name,wigos_station_identifier,traditional_station_identifier,facility_type,latitude,longitude,elevation,territory_name,wmo_region&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>~/wis2box-data/metadata/station/station_list.csv
+</code></pre></div>
+<p>Edit <code>dev.env</code> (using WinSCP or from the command line):</p>
+<p>Comment out the original <code>WIS2BOX_HOST_DATADIR</code> :</p>
+<p><code># WIS2BOX_HOST_DATADIR=/home/&lt;your-username&gt;/exercise-materials/wis2box-test-data</code> </p>
+<p>And add the following to point to your new directory:</p>
+<p><code>WIS2BOX_HOST_DATADIR=/home/&lt;your-username&gt;/wis2box-data</code></p>
+<h3 id="practical-sessions-environment-variables-define-custom-credentials-for-your-broker-and-storage">define custom credentials for your broker and storage</h3>
+<p>Edit the file <code>dev.env</code> and add the following to customize the default broker credentials (replace <code>XXXXXXXX</code> with your own password):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># broker credentials</span>
+<span class="nv">WIS2BOX_BROKER_USERNAME</span><span class="o">=</span>wis2box
+<span class="nv">WIS2BOX_BROKER_PASSWORD</span><span class="o">=</span>XXXXXXXX
+</code></pre></div>
+<p>And the following content to <code>dev.env</code> to set the storage credentials (replace XXXXXXXX with your own password)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># storage credentials</span>
+<span class="nv">WIS2BOX_STORAGE_USERNAME</span><span class="o">=</span>minio
+<span class="nv">WIS2BOX_STORAGE_PASSWORD</span><span class="o">=</span>XXXXXXXX
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">storage credentials requirements</p>
+<p>Username should be 3 or more characters</p>
+<p>Password should be 8 or more characters</p>
+</div>
+<p>Finally, add the following block to your <code>dev.env</code> to ensure the credentials are propagated across all services:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># wis2box-public-broker</span>
+<span class="nv">WIS2BOX_BROKER_PUBLIC</span><span class="o">=</span>mqtt://<span class="si">${</span><span class="nv">WIS2BOX_BROKER_USERNAME</span><span class="si">}</span>:<span class="si">${</span><span class="nv">WIS2BOX_BROKER_PASSWORD</span><span class="si">}</span>@mosquitto:1883
+<span class="c1"># minio-setup</span>
+<span class="nv">MINIO_ROOT_USER</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_STORAGE_USERNAME</span><span class="si">}</span>
+<span class="nv">MINIO_ROOT_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_STORAGE_PASSWORD</span><span class="si">}</span>
+<span class="nv">MINIO_NOTIFY_MQTT_USERNAME_WIS2BOX</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_BROKER_USERNAME</span><span class="si">}</span>
+<span class="nv">MINIO_NOTIFY_MQTT_PASSWORD_WIS2BOX</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_BROKER_PASSWORD</span><span class="si">}</span>
+</code></pre></div>
+<p>The content of you <code>dev.env</code> should now look as follows (except for your own passwords and URLs):</p>
+<p><img alt="winscp_devdotenv" src="../assets/img/winscp_devdotenv.png" width="800"></p>
+<h2 id="practical-sessions-environment-variables-restart-wis2box">Restart wis2box</h2>
+<p>Start the wis2box and check the status:
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>start
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>status
+</code></pre></div></p>
+<h3 id="practical-sessions-environment-variables-check-datawis2box-in-wis2box-management">Check /data/wis2box in wis2box-management</h3>
+<p>Login to the <strong>wis2box-management</strong> container using the following command:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<p>Run the following command to view the environment variable <code>WIS2BOX_HOST_DATADIR</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$WIS2BOX_HOST_DATADIR</span>
+</code></pre></div>
+<p>returns:</p>
+<div class="highlight"><pre><span></span><code><span class="go">/home/&lt;your-username&gt;/wis2box-data/</span>
+</code></pre></div>
+<p>And check the content of <code>/data/wis2box</code> inside the <strong>wis2box-management</strong> container:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/data/wis2box/
+</code></pre></div>
+<p>returns:</p>
+<div class="highlight"><pre><span></span><code><span class="go">data-mappings.yml metadata</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The directory defined by <code>$WIS2BOX_HOST_DATADIR</code> gets mounted as <code>/data/wis2box</code> inside the <strong>wis2box-management</strong> container.</p>
+</div>
+<h3 id="practical-sessions-environment-variables-re-connect-to-mqtt-explorer">Re-connect to MQTT-explorer</h3>
+<p>Try to reconnect to MQTT Explorer using the values you defined for <code>WIS2BOX_BROKER_USERNAME</code> and <code>WIS2BOX_BROKER_PASSWORD</code></p>
+<h3 id="practical-sessions-environment-variables-access-the-minio-user-interface">Access the MinIO user interface</h3>
+<p>Access the MinIO UI at <code>http://&lt;your-host-name&gt;:9001</code> using the values you defined for <code>WIS2BOX_STORAGE_USERNAME</code> and <code>WIS2BOX_STORAGE_PASSWORD</code></p>
+<h2 id="practical-sessions-environment-variables-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>reinitialize wis2box services</li>
+<li>set the wis2box data directory</li>
+<li>set custom passwords for your broker and storage</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-configuring-data-mappings"><h1 id="practical-sessions-configuring-data-mappings-configuring-data-mappings">Configuring data mappings</h1>
+<h2 id="practical-sessions-configuring-data-mappings-introduction">Introduction</h2>
+<p>wis2box uses a number of configuration files to allow for a simple setup of the system.  At the heart of wis2box
+is data ingest and publishing, which are driven by wis2box data mappings.  The basic concept of data mappings
+is configuring a WIS2 topic to a defined ingest and publish workflow and files/templates.  In this session, you
+will work on adding to the data mappings in support of publishing your data via wis2box.</p>
+<h2 id="practical-sessions-configuring-data-mappings-preparation">Preparation</h2>
+<p>Login to your student VM</p>
+<h3 id="practical-sessions-configuring-data-mappings-add-csv-data">Add CSV data</h3>
+<p>Here's how to add data mapping for wis2box to process CSV data.  Inspect the contents of the sample SYNOP CSV data mapping:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/wis2box-1.0b4/synop-csv-mappings.yml
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What topic is defined in this mapping?  What values of the topic are placeholders to be updated later in this session?</p>
+</div>
+<p>Copy and paste the above file contents into your file <code>~/wis2box-data/data-mappings.yml</code></p>
+<p>Update the <code>[country]</code> and <code>[centre_id]</code> values in your new/added data mapping.  Use your username as the <code>centre_id</code> topic.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>country</code> value should match one of the countries in the <a href="https://github.com/wmo-im/wis2-topic-hierarchy/blob/main/topic-hierarchy/country.csv">country list of the WIS2 Topic Hierarchy</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Centre ids will be officially managed and introduced as part of the WIS2 Topic Hierarchy throughout the WIS2 Pilot Phase, at which point each centre's id will be in the <a href="https://github.com/wmo-im/wis2-topic-hierarchy/blob/main/topic-hierarchy/centre-id.csv">centre_id list of the WIS2 Topic Hierarchy</a>.  <code>centre_id</code> values should be lower case and contain no accents or special characters. Dashes should be used instead of underscores.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>file-pattern</code> values throughout the data mapping provide a <a href="https://www.regular-expressions.info">regular expression</a> to be able to match filenames.  Ensure your filenames are formatted as per the regular expression in the new data mapping, to include <code>WIGOS_</code> as a fixed value, followed by the WIGOS Station Identifier (WSI), followed by an underscore (<code>_</code>), as well as any other information (i.e. datestamp).  Ensure the file extension is <code>.csv</code>.  A real world example would be <code>WIGOS_0-454-2-AWSBALAKA_2021-11-18T0955.csv</code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Remember your dataset topic for the <a href="#practical-sessions-configuring-wis2-discovery-metadata">WIS2 discovery metadata</a> exercise.</p>
+</div>
+<h2 id="practical-sessions-configuring-data-mappings-restart-wis2box">Restart wis2box</h2>
+<p>In order for data mappings to take effect, restart wis2box as follows:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>restart
+</code></pre></div>
+<h2 id="practical-sessions-configuring-data-mappings-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>inspect the live wis2box data mappings</li>
+<li>add a new data mapping</li>
+<li>update the <code>country</code> and <code>centre_id</code> values add a new data mapping</li>
+<li>update the <code>file-pattern</code> value to match your data filename convention</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-configuring-wis2-discovery-metadata"><h1 id="practical-sessions-configuring-wis2-discovery-metadata-configuring-wis2-discovery-metadata">Configuring WIS2 discovery metadata</h1>
+<h2 id="practical-sessions-configuring-wis2-discovery-metadata-introduction">Introduction</h2>
+<p>As described in the <a href="#overviews">overviews</a>, WIS2 requires discovery metadata to be provided describing
+your data to be shared to WIS2 Global Services.  This session will walk you through creating and publishing
+discovery metadata from wis2box from a configuration file.</p>
+<h2 id="practical-sessions-configuring-wis2-discovery-metadata-preparation">Preparation</h2>
+<p>Ensure you are running MQTT Explorer and you are connected to the broker on your student VM before continuing.</p>
+<p>Login to your student VM using your SSH-client.</p>
+<h2 id="practical-sessions-configuring-wis2-discovery-metadata-creating-discovery-metadata">Creating discovery metadata</h2>
+<p>Copy the test discovery metadata into your own file (you may name the file whatever you wish):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+cp<span class="w"> </span>examples/config/surface-weather-observations.yml<span class="w"> </span>~/wis2box-data/my-discovery-metadata.yml
+</code></pre></div>
+<p>Inspect the sample discovery metadata:</p>
+<div class="highlight"><pre><span></span><code>more<span class="w"> </span>~/wis2box-data/my-discovery-metadata.yml
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All values in the discovery metadata configuration are required and should be included.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How does line 3 of your discovery metadata file relate to the new data mapping in the previous session?</p>
+</div>
+<p>Update the following values in the discovery metadata configuration:</p>
+<ul>
+<li><code>wis2box.topic_hierarchy</code>: the topic hierarchy that categorizes the data (this value should be the same as the definition in your newly created data mapping).</li>
+<li><code>wis2box.country</code>: 3-letter country code in lower case</li>
+<li><code>wis2box.centre_id</code>: your centre id as defined in the previous exercise</li>
+<li><code>metadata.identifier</code>: a unique identifier consisting of <code>urn:x-wmo:md:[country]:[centre_id]:[dataset_name]</code>, where <code>[dataset-name]</code> can be any name of your choosing.  Remember this value for API validation later on in this exercise</li>
+<li><code>identification.title</code>: a human readable title describing your data</li>
+<li><code>identification.abstract</code>: a human readable description describing your data</li>
+<li><code>identification.dates.creation</code>: when the discovery metadata was created (today's date)</li>
+<li><code>identification.extents.spatial (bbox)</code>: the bounding box coordinates of your data (minimum longitude, minimum latitude, maximum longitude, maximum latitude), in decimal degrees</li>
+<li><code>identification.extents.temporal (begin)</code>: the begin and end time of your data (keeping the end time to <code>null</code> is suitable to ongoing observations)</li>
+<li><code>contact.pointOfContact</code>: your organization's point of contact information</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The configuration is based on the YAML format.  Consult the <a href="#cheatsheets-yaml">YAML cheatsheet</a> for more information.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ensure that bbox values are correctly signed (for example, use the minus sign [<code>-</code>] for southern or western hemispheres.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The following tools can be valuable for deriving your <code>identification.extents.spatial.bbox</code>:</p>
+<ul>
+<li><a href="https://gist.github.com/graydon/11198540">https://gist.github.com/graydon/11198540</a></li>
+<li><a href="http://bboxfinder.com">http://bboxfinder.com</a></li>
+<li><a href="https://boundingbox.klokantech.com">https://boundingbox.klokantech.com</a></li>
+</ul>
+</div>
+<h2 id="practical-sessions-configuring-wis2-discovery-metadata-publishing-discovery-metadata">Publishing discovery metadata</h2>
+<p>First login to the <strong>wis2box-management</strong> container:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<p>Run the following command to publish your discovery metadata:</p>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>metadata<span class="w"> </span>discovery<span class="w"> </span>publish<span class="w"> </span>/data/wis2box/my-discovery-metadata.yml
+</code></pre></div>
+<p>Ensure that your discovery metadata was published to the API, by navigating to <code>http://&lt;your-host&gt;/oapi/collections/discovery-metadata</code>.</p>
+<p>Ensure that your discovery metadata was also published to the broker, by looking for a new metadata message in MQTT Explorer.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Do you see your new discovery metadata in the API?</p>
+</div>
+<p>Click on your discovery metadata record and inspect the content, noting how it relates to the discovery metadata configuration created earlier in this session.</p>
+<p>Update the title of your discovery metadata, and re-publish:</p>
+<div class="highlight"><pre><span></span><code>vi<span class="w"> </span>/data/wis2box/my-discovery-metadata.yml
+wis2box<span class="w"> </span>metadata<span class="w"> </span>discovery<span class="w"> </span>publish<span class="w"> </span>/data/wis2box/my-discovery-metadata.yml
+</code></pre></div>
+<p>Ensure that your discovery metadata updates were published to the API, by refreshing the page to your discovery metadata.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Are you able to see the updates you made in the configuration?</p>
+</div>
+<p>Feel free to update additional values and re-publishing your discovery metadata to get a better idea of how and where discovery metadata content is updated.</p>
+<h2 id="practical-sessions-configuring-wis2-discovery-metadata-publishing-your-dataset-to-the-api">Publishing your dataset to the API</h2>
+<p>Run the below command to add the data to the API:</p>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>data<span class="w"> </span>add-collection<span class="w"> </span>/data/wis2box/my-discovery-metadata.yml
+</code></pre></div>
+<p>Ensure that your dataset was published to the API, by navigating to <code>http://&lt;your-host&gt;/oapi/collections/&lt;metadata.identifier&gt;</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Do you see your new dataset in the API?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Do you see any data coming from your new dataset in the API?  If not, why not?</p>
+</div>
+<h2 id="practical-sessions-configuring-wis2-discovery-metadata-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>create discovery metadata</li>
+<li>publish discovery metadata</li>
+<li>update and re-publish discovery metadata</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-configuring-station-metadata"><h1 id="practical-sessions-configuring-station-metadata-configuring-station-metadata">Configuring station metadata</h1>
+<h2 id="practical-sessions-configuring-station-metadata-introduction">Introduction</h2>
+<p>wis2box uses a fixed station metadata list that is used as part of its runtime operation. 
+Only data for stations configured in the wis2box station list will be published on your wis2box broker.
+The <strong>WIGOS Station Identifier (WSI)</strong> is used as the unique reference of the station which produced a specific set of observation data.</p>
+<h2 id="practical-sessions-configuring-station-metadata-preparation">Preparation</h2>
+<p>Login to your student VM using SSH.</p>
+<p>Ensure wis2box is running:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>start
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>status
+</code></pre></div>
+<h2 id="practical-sessions-configuring-station-metadata-update-the-wis2box-station-list">Update the wis2box station list</h2>
+<p>Pre-select a few stations in your country that you would consider for data publishing on WIS2. If you want to ingest your own data sample later during the WIS2 training, make sure to add the stations corresponding to your data.</p>
+<p>Edit the file <code>~/wis2box-data/metadata/station/station_list.csv</code>:</p>
+<p>For each new station, add a row to the end of the file with the following values:</p>
+<ul>
+<li><code>station_name</code>: the human readable name of the station</li>
+<li><code>wigos_station_identifier</code>: the WSI issued for the station</li>
+<li><code>traditional_station_identifier</code>: the traditional station identifier if a WSI does not exist</li>
+<li><code>facility_type</code>: the station/platform type (use <strong>Land (fixed)</strong> for land stations)</li>
+<li><code>latitude</code>: the latitude, in decimal degrees</li>
+<li><code>longitude</code>: the longitude, in decimal degrees</li>
+<li><code>elevation</code>: station elevation, in metres above sea level</li>
+<li><code>territory_name</code>: the human readable country name</li>
+<li><code>wmo_region</code>: the Roman numeral of your country based on WMO Regional Associations</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ensure that latitude and longitude values are correctly signed (for example, use the minus sign [<code>-</code>] for southern or western hemispheres.</p>
+</div>
+<h3 id="practical-sessions-configuring-station-metadata-using-data-from-oscar">Using data from OSCAR</h3>
+<p>It is recommended to use station information from the <a href="https://oscar.wmo.int/surface">WMO OSCAR/Surface</a> system where available.</p>
+<p>The script <code>~/exercise-materials/create-station-list/oscar2wis2box.py</code> can be used to add stations to your station list if they are available in OSCAR/Surface.</p>
+<p>For example to add the stations with WIGOS-IDs=0-20000-0-78970, 0-20000-0-78969 and 0-20000-0-78962 to your <code>station_list.csv</code>, run the following commands: </p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>~/exercise-materials/station-list/oscar2wis2box.py<span class="w"> </span><span class="m">0</span>-20000-0-78970<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/wis2box-data/metadata/station/station_list.csv
+python3<span class="w"> </span>~/exercise-materials/station-list/oscar2wis2box.py<span class="w"> </span><span class="m">0</span>-20000-0-78969<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/wis2box-data/metadata/station/station_list.csv
+python3<span class="w"> </span>~/exercise-materials/station-list/oscar2wis2box.py<span class="w"> </span><span class="m">0</span>-20000-0-78962<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/wis2box-data/metadata/station/station_list.csv
+</code></pre></div>
+<h3 id="practical-sessions-configuring-station-metadata-review-your-station-list">Review your station list</h3>
+<p>Check the content of your station list from the command line as follows:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/wis2box-data/metadata/station/station_list.csv
+</code></pre></div>
+<p>Or open the file in WinSCP.</p>
+<p>Keep adding lines to <code>station_list.csv</code> and ensure you have at least three stations defined.</p>
+<h2 id="practical-sessions-configuring-station-metadata-publishing-station-metadata">Publishing station metadata</h2>
+<p>Login in to the <strong>wis2box-management</strong> container:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<p>Run the following command to publish your station metadata:</p>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>metadata<span class="w"> </span>station<span class="w"> </span>publish-collection
+</code></pre></div>
+<p>Ensure that your new station metadata was published to the API, by navigating to <code>http://&lt;your-host&gt;.wis2.training/oapi/collections/stations/items</code>:</p>
+<p><img alt="stationlist_from_oscar" src="../assets/img/stationlist_from_oscar.png" width="800"></p>
+<p>Click on your station metadata record and inspect the content, noting how it relates to the content of the <code>station_list.csv</code> you have updated.</p>
+<h2 id="practical-sessions-configuring-station-metadata-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>update station metadata</li>
+<li>publish station metadata</li>
+</ul>
+</div></section><section class="print-page" id="practical-sessions-data-api-usage-and-queries"><h1 id="practical-sessions-data-api-usage-and-queries-data-api-usage-and-queries">Data API usage and queries</h1>
+<h2 id="practical-sessions-data-api-usage-and-queries-introduction">Introduction</h2>
+<p>The wis2box API provides discovery and query access in a machine readable manager, which includes the wis2box UI.</p>
+<p>In this practical session you will learn how to use the data API to discovery, browse and query data that has been ingested in wis2box.</p>
+<h2 id="practical-sessions-data-api-usage-and-queries-preparation">Preparation</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Navigate to the wis2box API landing page in your web browser:</p>
+<p><code>http://&lt;your-host&gt;/oapi</code></p>
+</div>
+<p><img alt="wis2box-api-landing-page" src="../assets/img/wis2box-api-landing-page.png" width="600"></p>
+<h2 id="practical-sessions-data-api-usage-and-queries-inspecting-collections">Inspecting collections</h2>
+<p>From the landing page, click on the 'Collections' link.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many dataset collections do you see on the resulting page? What do you think each collection represents?</p>
+</div>
+<h2 id="practical-sessions-data-api-usage-and-queries-inspecting-stations">Inspecting stations</h2>
+<p>From the landing page, click on the 'Collections' link, then click on the 'Stations' link.</p>
+<p><img alt="wis2box-api-collections-stations" src="../assets/img/wis2box-api-collections-stations.png" width="600"></p>
+<p>Click on the 'Browse' link, then click on the 'json' link.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many stations are returned? Compare this number to the station list in <code>/data/wis2box/metadata/station/station_list.csv</code> file when logged into wis2box (<code>python3 wis2box-ctl.py login</code>).</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we query for a single station (e.g. <code>Balaka</code>)?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above example is based on the Malawi test data.  Try testing against the stations your have ingested as part of the exercises.</p>
+</div>
+<h2 id="practical-sessions-data-api-usage-and-queries-inspecting-observations">Inspecting observations</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above example is based on the Malawi test data.  Try testing against the observation your have ingested as part of the exercises.</p>
+</div>
+<p>From the landing page, click on the 'Collections' link, then click on the 'Surface weather observations from Malawi' link.</p>
+<p><img alt="wis2box-api-collections-malawi-obs" src="../assets/img/wis2box-api-collections-malawi-obs.png" width="600"></p>
+<p>Click on the 'Queryables' link.</p>
+<p><img alt="wis2box-api-collections-malawi-obs-queryables" src="../assets/img/wis2box-api-collections-malawi-obs-queryables.png" width="600"></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Which queryable would be used to filter by station identifier?</p>
+</div>
+<p>Navigate to the previous page (i.e. <code>http://localhost/oapi/collections/urn:x-wmo:md:mwi:mwi_met_centre:surface-weather-observations</code>)</p>
+<p>Click on the 'Browse' link.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we visualize the JSON response?</p>
+</div>
+<p>Inspect the JSON response of the observations.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many records are returned?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we limit the response to 3 observations?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we sort the response by the latest observations?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we filter the observations by a single station?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we receive the observations as a CSV?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How can we show a single observation (id)?</p>
+</div>
+<h2 id="practical-sessions-data-api-usage-and-queries-conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>use the wis2box API to query and filter your stations</li>
+<li>use the wis2box API to query and filter your data</li>
+</ul>
+</div></section>
+                        <h2 class='nav-section-title' id='section-answers'>
+                            Answers <a class='headerlink' href='#section-answers' title='Permanent link'>↵</a>
+                        </h2>
+                        <section class="print-page" id="answers-synop2bufr-answers"><h1 id="answers-synop2bufr-answers-converting-synop-data-to-bufr-answers">Converting SYNOP data to BUFR answers</h1>
+<h2 id="answers-synop2bufr-answers-exercise-1">Exercise 1</h2>
+<ol>
+<li>There is 1 SYNOP report, as there is only 1 delimiter (=)</li>
+<li>There is 1 station</li>
+<li>
+<p>This is done using the <code>transform</code> command, for example:</p>
+<div class="highlight"><pre><span></span><code>synop2bufr<span class="w"> </span>transform<span class="w"> </span>--metadata<span class="w"> </span>station_list.csv<span class="w"> </span>--output-dir<span class="w"> </span>.<span class="w"> </span>message.txt
+</code></pre></div>
+</li>
+<li>
+<p>This can be done using the following command:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;file.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;latitude|longitude&#39;</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="answers-synop2bufr-answers-exercise-2">Exercise 2</h2>
+<ol>
+<li>There are 3 SYNOP reports, as there are 3 delimiters (=)</li>
+<li>There are 3 stations</li>
+<li>
+<p>This is done using the <code>transform</code> command, for example:</p>
+<div class="highlight"><pre><span></span><code>synop2bufr<span class="w"> </span>transform<span class="w"> </span>--metadata<span class="w"> </span>station_list.csv<span class="w"> </span>--output-dir<span class="w"> </span>.<span class="w"> </span>message.txt
+</code></pre></div>
+</li>
+<li>
+<p>The number of BUFR files output is determined by the number of valid SYNOP reports in the text file, provided the station TSI of each report can be found in the station list file with a corresponding WSI</p>
+</li>
+<li>
+<p>This can be done using the following commands:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;file.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;wigos&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;file.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;wigos&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;file.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;wigos&#39;</span>
+</code></pre></div>
+<p>Note that if you have a directory with just these 3 BUFR files, you can use Linux wildcards as follows:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>*.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;wigos&#39;</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="answers-synop2bufr-answers-exercise-3">Exercise 3</h2>
+<ol>
+<li>No, this is not a problem provided that there exists a row in the station list file with a station TSI matching that of the SYNOP report we are trying to convert</li>
+<li>
+<p>This is done using the <code>transform</code> command, for example:</p>
+<div class="highlight"><pre><span></span><code>synop2bufr<span class="w"> </span>transform<span class="w"> </span>--metadata<span class="w"> </span>station_list.csv<span class="w"> </span>--output-dir<span class="w"> </span>.<span class="w"> </span>message.txt
+</code></pre></div>
+</li>
+<li>
+<p>This can be done in one command:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>&lt;file.bufr4&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;temperature|cover|sunshine|wind&#39;</span>
+</code></pre></div>
+</li>
+</ol>
+<p>Of course a command for each variable can also be used.</p>
+<h2 id="answers-synop2bufr-answers-exercise-4">Exercise 4</h2>
+<ol>
+<li>The SYNOP reports are missing the delimiter (<code>=</code>) that allows <code>synop2bufr</code> to distinguish one report from another</li>
+<li>Attempting to convert should raise the following error: <code>ERROR:synop2bufr:Delimiters (=) are not present in the string, thus unable to identify separate SYNOP reports.</code></li>
+</ol>
+<h2 id="answers-synop2bufr-answers-exercise-5">Exercise 5</h2>
+<ol>
+<li>One of the station TSIs (<code>15015</code>) has no corresponding metadata in the file, which will prohibit synop2bufr from accessing additional necessary metadata to convert the first SYNOP report to BUFR</li>
+<li>The error is: <code>ERROR:synop2bufr:Missing WSI for station 15015</code></li>
+<li>There are 3 SYNOP reports but only 2 BUFR files have been produced. This is because one of the SYNOP reports lacked the necessary metadata as mentioned above</li>
+</ol></section><section class="print-page" id="answers-csv2bufr-answers"><h1 id="answers-csv2bufr-answers-converting-csv-data-to-bufr-answers">Converting CSV data to BUFR answers</h1>
+<h2 id="answers-csv2bufr-answers-exercise-1">Exercise 1</h2>
+<ol>
+<li>There are 4 header rows.</li>
+<li>Row 2 contains the column names.</li>
+<li>Found by checking the lines 6 and 7 in the mapping file.</li>
+<li>These are found in the <code>data:</code> lines of the mapping file.</li>
+<li>The CSV data is converted to BUFR using the following command:
+    <div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>ex_1.csv<span class="w"> </span>--bufr-template<span class="w"> </span>mappings_1.json
+</code></pre></div></li>
+<li>The latitude and longitude can be verified using the following command:
+    <div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>WIGOS_0-454-2-AWSMULANJE_20230526T005500.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;latitude|longitude&#39;</span>
+</code></pre></div></li>
+</ol>
+<h2 id="answers-csv2bufr-answers-exercise-2">Exercise 2</h2>
+<ol>
+<li>
+<p>In the previous CSV file, the datetime was split into six columns representing the year, month, day, hour, minute, and second of the observation. In this CSV file, the datetime is stored in a single column.</p>
+</li>
+<li>
+<p>This is done by recreating the six columns of the previous CSV file, and deleting the new datetime column.</p>
+</li>
+<li>
+<p>The CSV data is written to BUFR using:
+    <div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>ex_2.csv<span class="w"> </span>--bufr-template<span class="w"> </span>mappings_2.json
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="answers-csv2bufr-answers-exercise-3">Exercise 3</h2>
+<ol>
+<li>
+<p>When running:
+    <div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>ex_3.csv<span class="w"> </span>--bufr-template<span class="w"> </span>mappings_3.json
+</code></pre></div></p>
+<p>You should see the following error:</p>
+<div class="highlight"><pre><span></span><code>Column RH not found in input data
+</code></pre></div>
+<p>followed by the input data dictionary.</p>
+</li>
+<li>
+<p>The relative humidity column now has name <code>RelativeHumidity</code> instead of <code>RH</code>.</p>
+</li>
+<li>
+<p>We do this by changing the line:</p>
+<div class="highlight"><pre><span></span><code>{&quot;eccodes_key&quot;: &quot;#1#relativeHumidity&quot;, &quot;value&quot;:&quot;data:RH&quot;}
+</code></pre></div>
+<p>to:</p>
+<div class="highlight"><pre><span></span><code>{&quot;eccodes_key&quot;: &quot;#1#relativeHumidity&quot;, &quot;value&quot;:&quot;data:RelativeHumidity&quot;}
+</code></pre></div>
+</li>
+<li>
+<p>The CSV data is written to BUFR by re-using:</p>
+<div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>ex_3.csv<span class="w"> </span>--bufr-template<span class="w"> </span>mappings_3.json
+</code></pre></div>
+</li>
+<li>
+<p>The relative humidity can be verified using:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>WIGOS_0-454-2-AWSMULANJE_20230526T005500.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span>relativeHumidity
+</code></pre></div>
+<p>which should give a value of <code>54</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value returned is not the same exact value as what is present in the CSV file: 54.09.
+This is because some variables (such as relative humidity) in BUFR are always integers, hence are rounded.</p>
+</div>
+</li>
+</ol>
+<h2 id="answers-csv2bufr-answers-exercise-4">Exercise 4</h2>
+<ol>
+<li>The units are found in row 3.</li>
+<li>2, as 1hPa = 100Pa.</li>
+<li>273.15, as 0 degrees C = 273.15 K</li>
+<li>
+<p>You should have the following line in your mapppings file:</p>
+<div class="highlight"><pre><span></span><code>{&quot;eccodes_key&quot;: &quot;#1#nonCoordinatePressure&quot;, &quot;value&quot;:&quot;data:BP&quot;, &quot;offset&quot;: &quot;const:0&quot;, &quot;scale&quot;: &quot;const:2&quot;}
+</code></pre></div>
+</li>
+<li>
+<p>You should have the following line in your mappings file:</p>
+<div class="highlight"><pre><span></span><code>{&quot;eccodes_key&quot;: &quot;#1#airTemperature&quot;, &quot;value&quot;:&quot;data:AirTempC&quot;}
+{&quot;eccodes_key&quot;: &quot;#1#dewpointTemperature&quot;, &quot;value&quot;:&quot;data:DewPointTempC&quot;}
+</code></pre></div>
+</li>
+<li>
+<p><code>{"eccodes_key": "#1#airTemperature", "value":"data:AirTempC", "offset": "const:273.15", "scale": "const:0"}</code></p>
+</li>
+<li>
+<p><code>{"eccodes_key": "#1#dewpointTemperature", "value":"data:DewPointTempC", "offset": "const:273.15", "scale": "const:0"}</code></p>
+</li>
+<li>
+<p>The CSV data is written to BUFR by re-using:</p>
+<div class="highlight"><pre><span></span><code>csv2bufr<span class="w"> </span>data<span class="w"> </span>transform<span class="w"> </span>ex_4.csv<span class="w"> </span>--bufr-template<span class="w"> </span>mappings_4.json
+</code></pre></div>
+</li>
+<li>
+<p>The converted variables can be verified using:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>WIGOS_0-454-2-AWSMULANJE_20230526T005500.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;nonCoordinatePressure|airTemperature|dewpointTemperature&#39;</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="answers-csv2bufr-answers-exercise-5">Exercise 5</h2>
+<ol>
+<li>
+<p>When converting <code>ex_5.csv</code> to BUFR, we see the following error:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#1#pressureReducedToMeanSeaLevel: Value (102043.2) out of valid range (50000 - 100000).; Element set to missing</span>
+<span class="c1">#1#airTemperature: Value (25.85) out of valid range (-10 - 25).; Element set to missing</span>
+</code></pre></div>
+</li>
+<li>
+<p>By using the following command:</p>
+<div class="highlight"><pre><span></span><code>bufr_dump<span class="w"> </span>-p<span class="w"> </span>WIGOS_0-454-2-AWSMULANJE_20230526T005500.bufr4<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;pressureReducedToMeanSeaLevel|airTemperature|dewpointTemperature&#39;</span>
+</code></pre></div>
+<p>which gives the following output:</p>
+<div class="highlight"><pre><span></span><code>pressureReducedToMeanSeaLevel=MISSING
+airTemperature=MISSING
+dewpointTemperature=289.1
+</code></pre></div>
+<p>We find that the pressure and air temperature variables are missing because, from the error found in part 1, these variables are outside of the valid range.</p>
+</li>
+<li>
+<p>This is personal preference.</p>
+</li>
+<li>
+<p>Provided the values of <code>QNH</code>, <code>AirTempC</code>, and <code>DewPointTempC</code> are within the ranges set in the previous part, the CSV file should convert to BUFR without any errors.</p>
+</li>
+</ol></section><h1 class='nav-section-title-end'>Ended: Answers</h1><h1 class='nav-section-title-end'>Ended: Practical sessions</h1>
+                        <h1 class='nav-section-title' id='section-cheatsheets'>
+                            Cheatsheets <a class='headerlink' href='#section-cheatsheets' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="cheatsheets-linux"><h1 id="cheatsheets-linux-linux-cheatsheet">Linux cheatsheet</h1>
+<h2 id="cheatsheets-linux-overview">Overview</h2>
+<p>The basic concepts of working in a Linux operating system are <strong>files</strong> and <strong>directories</strong> (folders) organized in
+a tree structure within an <strong>environment</strong>.</p>
+<p>Once you login to a Linux system, you are working in a <strong>shell</strong> in which you can work on files and directories,
+by executing commands which are installed on the system.  The Bash shell is a common and popular shell which
+is typically found on Linux systems.</p>
+<h2 id="cheatsheets-linux-bash">Bash</h2>
+<h3 id="cheatsheets-linux-directory-navigation">Directory Navigation</h3>
+<ul>
+<li>Entering an absolute directory:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/dir1/dir2
+</code></pre></div>
+<ul>
+<li>Entering a relative directory:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>./somedir
+</code></pre></div>
+<ul>
+<li>Move one directory up:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<ul>
+<li>Move two directories up:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../..
+</code></pre></div>
+<ul>
+<li>Move to your "home" directory:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>-
+</code></pre></div>
+<h3 id="cheatsheets-linux-file-management">File Management</h3>
+<ul>
+<li>Listing files in the current directory:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ls
+</code></pre></div>
+<ul>
+<li>Listing files in the current directory with more detail:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l
+</code></pre></div>
+<ul>
+<li>List the root of the filessystem:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/
+</code></pre></div>
+<ul>
+<li>Create an empty file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>foo.txt
+</code></pre></div>
+<ul>
+<li>Create a file from an <code>echo</code> command:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hi there&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test-file.txt
+</code></pre></div>
+<ul>
+<li>Copy a file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>file1<span class="w"> </span>file2
+</code></pre></div>
+<ul>
+<li>Wildcards: operate on file patterns:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>fil*<span class="w">  </span><span class="c1"># matches file1 and file2</span>
+</code></pre></div>
+<ul>
+<li>Concatenate two files into a new file called <code>newfile</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>&gt;<span class="w"> </span>newfile
+</code></pre></div>
+<ul>
+<li>Append another file into <code>newfile</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>file3<span class="w"> </span>&gt;&gt;<span class="w"> </span>newfile
+</code></pre></div>
+<ul>
+<li>Delete a file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>newfile
+</code></pre></div>
+<ul>
+<li>Delete all files with the same file extension:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>*.dat
+</code></pre></div>
+<ul>
+<li>Create a directory</li>
+</ul>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>dir1
+</code></pre></div>
+<h3 id="cheatsheets-linux-chaining-commands-together-with-pipes">Chaining commands together with pipes</h3>
+<p>Pipes allow a user to send the output of one command to another using the pipe <code>|</code> symbol:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/hi/bye/&#39;</span>
+</code></pre></div>
+<ul>
+<li>Filtering command outputs using grep:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;id,title&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test-file.txt
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;1,birds&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test-file.txt
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;2,fish&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test-file.txt
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;3,cats&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test-file.txt
+
+cat<span class="w"> </span>test-file.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>fish
+</code></pre></div>
+<ul>
+<li>Ignoring case:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-i<span class="w"> </span>FISH<span class="w"> </span>test-file.txt
+</code></pre></div>
+<ul>
+<li>Count matching lines:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-c<span class="w"> </span>fish<span class="w"> </span>test-file.txt
+</code></pre></div>
+<ul>
+<li>Return outputs not containing keyword:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-v<span class="w"> </span>birds<span class="w"> </span>test-file.txt
+</code></pre></div>
+<ul>
+<li>Count the number of lines in <code>test-file.txt</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>wc<span class="w"> </span>-l<span class="w"> </span>test-file.txt
+</code></pre></div>
+<ul>
+<li>Display output one screen at a time:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>more<span class="w"> </span>test-file.txt
+</code></pre></div>
+<p>...with controls:</p>
+<ul>
+<li>Scroll down line by line: <em>enter</em></li>
+<li>Go to next page: <em>space bar</em></li>
+<li>
+<p>Go back one page: <em>b</em></p>
+</li>
+<li>
+<p>Display the first 3 lines of the file:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>head<span class="w"> </span>-3<span class="w"> </span>test-file.txt
+</code></pre></div>
+<ul>
+<li>Display the last 2 lines of the file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-2<span class="w"> </span>test-file.txt
+</code></pre></div></section><section class="print-page" id="cheatsheets-docker"><h1 id="cheatsheets-docker-docker-cheatsheet">Docker cheatsheet</h1>
+<h2 id="cheatsheets-docker-overview">Overview</h2>
+<p>Docker allows for creating virtual envronments in an isolated manner in support
+of virtualization of computing resources.  The basic concept behind Docker is containerization,
+where software can run as services, interacting with other software containers, for example.</p>
+<p>The typical Docker workflow involves creating and building <strong>images</strong>, which are then run as live <strong>containers</strong>.</p>
+<h3 id="cheatsheets-docker-image-management">Image management</h3>
+<ul>
+<li>List available images</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>images
+</code></pre></div>
+<ul>
+<li>Build an image from a Dockerfile:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; Dockerfile</span>
+<span class="s">FROM ubuntu:latest</span>
+
+<span class="s">RUN apt-get update</span>
+<span class="s">RUN apt-get install –y nginx</span>
+
+<span class="s">CMD [&quot;echo&quot;, &quot;Hello from my first Docker setup!&quot;]</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<ul>
+<li>Building the image:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my-image:local<span class="w"> </span>.
+</code></pre></div>
+<ul>
+<li>Removing an image:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>rmi<span class="w"> </span>my-image:local
+</code></pre></div>
+<h3 id="cheatsheets-docker-volume-management">Volume Management</h3>
+<ul>
+<li>List all created volumes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</code></pre></div>
+<ul>
+<li>Create a volume:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my-volume
+</code></pre></div>
+<ul>
+<li>Display detailed information on a volume:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>my-volume
+</code></pre></div>
+<ul>
+<li>Remove a volume:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>my-volume
+</code></pre></div>
+<ul>
+<li>Remove all unused volumes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>prune
+</code></pre></div>
+<h3 id="cheatsheets-docker-container-management">Container Management</h3>
+<ul>
+<li>Create a container from an image, with an interactive terminal (<code>-it</code>) and a mounted volume (<code>v</code>):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">pwd</span><span class="si">}</span>:/app<span class="w"> </span>my-image:local
+</code></pre></div>
+<ul>
+<li>Display a list of currently running containers:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
+</code></pre></div>
+<ul>
+<li>List of all containers:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div>
+<ul>
+<li>Start a container:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>start<span class="w"> </span>my-image:local<span class="w">  </span><span class="c1"># starts a new container</span>
+</code></pre></div>
+<ul>
+<li>Enter the interactive terminal of a running container:</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>use <code>docker ps</code> to use the container id in the command below</p>
+</div>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>my-container<span class="w"> </span>/bin/bash
+</code></pre></div>
+<ul>
+<li>Remove a container</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>rm<span class="w"> </span>my-container
+</code></pre></div>
+<ul>
+<li>Remove a running container:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>my-container
+</code></pre></div></section><section class="print-page" id="cheatsheets-yaml"><h1 id="cheatsheets-yaml-yaml-cheatsheet">YAML cheatsheet</h1>
+<h2 id="cheatsheets-yaml-overview">Overview</h2>
+<p>Many wis2box configuration files are managed in <a href="https://yaml.org">YAML (YAML Ain't Markup Language)</a>
+format.  YAML allows for flexible configurations using indentation to do grouping and nesting.</p>
+<h2 id="cheatsheets-yaml-indentation">Indentation</h2>
+<p>YAML is characterized by indentatation.  It is important to ensure consistet indentatation in a YAML
+fileiont.</p>
+<p>It is recommended to use <strong>4 spaces</strong> for a default indentation level.</p>
+<p>It is also strongly recommended to <strong>NOT</strong> use tabs for indentation.</p>
+<h2 id="cheatsheets-yaml-a-simple-yaml-file">A simple YAML file:</h2>
+<div class="highlight"><pre><span></span><code><span class="nt">my-configuration</span><span class="p">:</span><span class="w">  </span><span class="c1"># &lt;- this is a section</span>
+<span class="w">    </span><span class="c1"># this is a comment</span>
+<span class="w">    </span><span class="c1"># you can add comments in this manner as you wish</span>
+<span class="w">    </span><span class="nt">section</span><span class="p">:</span><span class="w">  </span><span class="c1"># &lt;- this is nested section</span>
+<span class="w">        </span><span class="nt">subsection</span><span class="p">:</span><span class="w">  </span><span class="c1"># &lt;- this is another nested section</span>
+<span class="w">            </span><span class="nt">value1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123</span><span class="w">  </span><span class="c1"># an integer</span>
+<span class="w">            </span><span class="nt">value2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.23</span><span class="w">  </span><span class="c1"># a float</span>
+<span class="w">            </span><span class="nt">value3</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;123&#39;</span><span class="w">  </span><span class="c1"># a number forced into a string</span>
+<span class="w">            </span><span class="nt">value4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my value</span><span class="w">  </span><span class="c1"># a string (does not need quoting)</span>
+<span class="w">            </span><span class="nt">value4</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># an array/list</span>
+
+<span class="w">    </span><span class="c1"># lists can contain any data type, including more lists or sections</span>
+<span class="w">    </span><span class="nt">my-list</span><span class="p">:</span><span class="w">  </span><span class="c1"># another list, same result as value4 above</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item 1</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item 2</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item 3</span>
+</code></pre></div></section><section class="print-page" id="cheatsheets-wis2box"><h1 id="cheatsheets-wis2box-wis2-in-a-box-cheatsheet">WIS2 in a box cheatsheet</h1>
+<h2 id="cheatsheets-wis2box-overview">Overview</h2>
+<p>wis2box runs as a suite of Docker Compose commands.  The <code>wis2box-ctl.py</code> command is a utility
+(written in Python) to run Docker Compose commands easily.</p>
+<h2 id="cheatsheets-wis2box-wis2box-command-essentials">wis2box command essentials</h2>
+<h3 id="cheatsheets-wis2box-building">Building</h3>
+<ul>
+<li>Build all of wis2box:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>build
+</code></pre></div>
+<ul>
+<li>Build a specific wis2box Docker image:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>build<span class="w"> </span>wis2box-management
+</code></pre></div>
+<ul>
+<li>Update wis2box:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>update
+</code></pre></div>
+<h3 id="cheatsheets-wis2box-starting-and-stopping">Starting and stopping</h3>
+<ul>
+<li>Start wis2box:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>start
+</code></pre></div>
+<ul>
+<li>Stop wis2box:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>stop
+</code></pre></div>
+<ul>
+<li>Verify all wis2box containers are running:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>status
+</code></pre></div>
+<ul>
+<li>Login to a wis2box container (<em>wis2box-management</em> by default):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<ul>
+<li>Login to a specific wis2box container:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login<span class="w"> </span>wis2box-api
+</code></pre></div>
+<h3 id="cheatsheets-wis2box-design-time-commands-metadata-management-and-publishing">Design time commands (metadata management and publishing)</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must be logged into the <strong>wis2box-management</strong> container to run the below commands</p>
+</div>
+<ul>
+<li>Publish discovery metadata:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>metadata<span class="w"> </span>discovery<span class="w"> </span>publish<span class="w"> </span>/path/to/discovery-metadata-file.yml
+</code></pre></div>
+<ul>
+<li>Publish station metadata:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>metadata<span class="w"> </span>station<span class="w"> </span>publish-collection
+</code></pre></div>
+<ul>
+<li>Add a dataset of observation collections from discovery metadata:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>data<span class="w"> </span>add-collection<span class="w"> </span>/path/to/discovery-metadata-file.yml
+</code></pre></div>
+<ul>
+<li>Ingest data into the <strong>wis2box-incoming</strong> bucket to trigger processing and publishing:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>wis2box<span class="w"> </span>data<span class="w"> </span>ingest<span class="w"> </span>--topic-hierarchy<span class="w"> </span>topic.hierarchy.path<span class="w"> </span>--path<span class="w"> </span>/path/to/directory/of/data/files
+</code></pre></div></section><h1 class='nav-section-title-end'>Ended: Cheatsheets</h1>
+                        <h1 class='nav-section-title' id='section-schedule'>
+                            Schedule <a class='headerlink' href='#section-schedule' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="schedule-namibia-2023-03"><h1 id="schedule-namibia-2023-03-20-24-march-2023-windhoek-namibia">20 - 24 March 2023: Windhoek, Namibia 🇳🇦</h1>
+<h2 id="schedule-namibia-2023-03-venue">Venue</h2>
+<p>Hotel Safari, Managed By Accor</p>
+<p>Corner Of Auas Aviation Road, 9000 Windhoek, Namibia</p>
+<h2 id="schedule-namibia-2023-03-learning-objectives">Learning Objectives</h2>
+<ul>
+<li>to be able to explain WIS2 architecture</li>
+<li>to be able to install and configure the WIS2 in a box software</li>
+<li>to be able to operate a WIS2 Node</li>
+</ul>
+<h2 id="schedule-namibia-2023-03-timetable">Timetable</h2>
+<h3 id="schedule-namibia-2023-03-day-1">Day 1</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Subject</th>
+<th>Instructor(s)</th>
+<th>Presentation(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8h30 - 9h</td>
+<td>Registration</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09h - 11h</td>
+<td>Opening photo and Round table</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11h - 11h30</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11h30 - 12h</td>
+<td>WIS2 Implementation Plan</td>
+<td>Hassan Haddouch</td>
+<td><a href="../schedule/namibia-2023-03/WIS2-Pilot-phase-Namibia.pptx">Presentation</a></td>
+</tr>
+<tr>
+<td>12h - 12h30</td>
+<td>WIS2 Architecture</td>
+<td>Enrico Fucile</td>
+<td><a href="../schedule/namibia-2023-03/WIS%202.0%20Architecture.pptx">Presentation</a></td>
+</tr>
+<tr>
+<td>12h30 - 13h30</td>
+<td>Lunch break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13h30 - 14h30</td>
+<td>Practical session: <a href="#practical-sessions-connecting-to-mqtt">Connecting to WIS2 over MQTT</a></td>
+<td>Maaike Limper/Timo Proescholdt</td>
+<td></td>
+</tr>
+<tr>
+<td>14h30 - 15h15</td>
+<td>Introducing WIS2 in a box</td>
+<td>Tom Kralidis</td>
+<td><a href="../schedule/namibia-2023-03/wis2box-training-wis2box-introduction.pptx">Presentation</a></td>
+</tr>
+<tr>
+<td>15h15 - 15h45</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15h45 - 16h30</td>
+<td>WIS2 in a box case studies</td>
+<td>Enrico Fucile</td>
+<td><a href="../schedule/namibia-2023-03/WIS%202.0%20box%20case%20studies.pptx">Presentation</a></td>
+</tr>
+<tr>
+<td>16h30 - 17h</td>
+<td>Wrap-up  / open issues</td>
+<td>Timo Proescholdt</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="schedule-namibia-2023-03-day-2">Day 2</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Subject</th>
+<th>Instructor(s)</th>
+<th>Presentation(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9h - 9h30</td>
+<td>The training environment</td>
+<td>Timo Proescholdt</td>
+<td><a href="../schedule/namibia-2023-03/WIS%202%20box%20training%20environment-3.pptx">Presentation</a></td>
+</tr>
+<tr>
+<td>9h30 - 11h</td>
+<td>Practical session: <a href="#practical-sessions-student-vm">Accessing your student VM</a></td>
+<td>Maaike Limper/Timo Proescholdt</td>
+<td></td>
+</tr>
+<tr>
+<td>11h - 11h30</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11h30 - 12h30</td>
+<td>WIS2 in a box architecture, project and installation</td>
+<td>Tom Kralidis</td>
+<td><a href="../schedule/namibia-2023-03/wis2box-training-wis2box-architecture.pptx">Architecture</a><br/><br/><a href="../schedule/namibia-2023-03/wis2box-training-wis2box-project-install.pptx">Project and installation</a></td>
+</tr>
+<tr>
+<td>12h30 - 13h30</td>
+<td>Lunch break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13h30 - 15h</td>
+<td>Practical session: <a href="#practical-sessions-installing-wis2box-with-test-data">Installing WIS2 box with test data</a></td>
+<td>Tom Kralidis/Maaike Limper</td>
+<td></td>
+</tr>
+<tr>
+<td>15h - 15h30</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15h30 - 16h30</td>
+<td>Practical session: <a href="#practical-sessions-installing-wis2box-with-test-data">Installing WIS2 box with test data</a></td>
+<td>Tom Kralidis/Maaike Limper</td>
+<td></td>
+</tr>
+<tr>
+<td>16h30 - 17h</td>
+<td>Group discussion: insights and challenges installing wis2box</td>
+<td>Timo Proescholdt</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="schedule-namibia-2023-03-day-3">Day 3</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Subject</th>
+<th>Instructor(s)</th>
+<th>Presentation(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9h - 10h</td>
+<td>BUFR and ecCodes</td>
+<td>Enrico Fucile</td>
+<td><a href="../schedule/namibia-2023-03/WMO_BUFR_in_a_nutshell.pptx">BUFR in a nutshell</a><br/><br/><a href="../schedule/namibia-2023-03/WMO_BUFR_with_ecCodes.pptx">BUFR with ecCodes</a></td>
+</tr>
+<tr>
+<td>10h - 11h</td>
+<td><a href="#practical-sessions-converting-synop-data-to-bufr">Conversion to BUFR: synop2bufr</a></td>
+<td>Enrico Fucile/Maaike Limper</td>
+<td><a href="../schedule/namibia-2023-03/WIS2%20training%20synop_2_bufr.pptx">SYNOP to BUFR</a></td>
+</tr>
+<tr>
+<td>11h - 11h30</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11h30 - 12h30</td>
+<td><a href="#practical-sessions-converting-csv-data-to-bufr">Conversion to BUFR: csv2bufr</a></td>
+<td>Enrico Fucile/Maaike Limper</td>
+<td><a href="../schedule/namibia-2023-03/WIS2%20training%20csv_2_bufr.pptx">CSV to BUFR</a></td>
+</tr>
+<tr>
+<td>12h30 - 13h30</td>
+<td>Lunch break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13h30 - 14h</td>
+<td>DAYCLI</td>
+<td>Enrico Fucile</td>
+<td><a href="../schedule/namibia-2023-03/WIS2%20training%20DAYCLI.pptx">Daily Climate data (DAYCLI)</a></td>
+</tr>
+<tr>
+<td>14h - 14h30</td>
+<td>Practical session: <a href="#practical-sessions-converting-daycli-data-to-bufr">Converting DAYCLI data to BUFR</a></td>
+<td>Enrico Fucile</td>
+<td></td>
+</tr>
+<tr>
+<td>14h30 - 15h</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15h - 16h30</td>
+<td>Convert your data</td>
+<td>Enrico Fucile/Maaike Limper</td>
+<td></td>
+</tr>
+<tr>
+<td>16h30 - 17h</td>
+<td>Group discussion: insights and challenges converting data to BUFR</td>
+<td>Timo Proescholdt</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="schedule-namibia-2023-03-day-4">Day 4</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Subject</th>
+<th>Instructor(s)</th>
+<th>Presentation(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9h - 11h</td>
+<td><a href="#practical-sessions-installing-wis2box-with-test-data-start-wis2box">Installing wis2box with test data</a><br/><a href="#practical-sessions-configuring-data-mappings">Configuring data mappings</a><br/><a href="#practical-sessions-configuring-wis2-discovery-metadata">Configuring WIS2 discovery metadata</a><br/><a href="#practical-sessions-configuring-station-metadata">Configuring station metadata</a></td>
+<td>Tom Kralidis/Maaike Limper</td>
+<td></td>
+</tr>
+<tr>
+<td>11h - 11h30</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11h30 - 12h30</td>
+<td>wis2box practical session: runtime configuration setup (continued)</td>
+<td>Tom Kralidis/Maaike Limper</td>
+<td></td>
+</tr>
+<tr>
+<td>12h30 - 13h30</td>
+<td>Lunch break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13h30 - 15h30</td>
+<td>Practical session: <a href="#practical-sessions-data-ingest-and-monitoring">Data ingest and monitoring</a></td>
+<td>Tom Kralidis/Maaike Limper</td>
+<td></td>
+</tr>
+<tr>
+<td>15h30 - 17h</td>
+<td>Practical session: <a href="#practical-sessions-downloading-and-finding-data-from-wis2">Downloading and finding data from WIS2</a></td>
+<td>Tom Kralidis/Maaike Limper</td>
+<td><a href="../schedule/namibia-2023-03/wis2box-training-wis2box-data-access.pptx">WIS2 data access</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="schedule-namibia-2023-03-day-5">Day 5</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Subject</th>
+<th>Instructor(s)</th>
+<th>Presentation(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9h - 10h30</td>
+<td>Joining WIS2 as a WIS2 Node</td>
+<td>Timo Proescholdt</td>
+<td><a href="../schedule/namibia-2023-03/Participating%20in%20the%20pilot%20phase%20as%20a%20WIS2%20node.pptx">Participating in the pilot phase as a WIS2 Node</a></td>
+</tr>
+<tr>
+<td>10h30 - 11h</td>
+<td>Next steps with WIS2</td>
+<td>Hassan Haddouch/Enrico Fucile</td>
+<td><a href="../schedule/namibia-2023-03/Next-steps-Namibia.pptx">Next steps with WIS2</a></td>
+</tr>
+<tr>
+<td>11h - 11h30</td>
+<td>Round table: participants' plans for WIS2</td>
+<td>all</td>
+<td><a href="../schedule/namibia-2023-03/Day5-Template%20for%20participants-WIS%202.0%20National%20Plan.pptx">WIS2 National Plan</a></td>
+</tr>
+<tr>
+<td>11h30 - 12h</td>
+<td>Closing ceremony</td>
+<td>all</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="schedule-namibia-2023-03-participants">Participants</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Country</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Algeria 🇩🇿</td>
+<td>Abderraouf KADEM</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Congo 🇨🇬</td>
+<td>Francilly Lardin SAMBA</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Eswatini 🇸🇿</td>
+<td>Mbongeni Ian GAMEDZE</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Kenya 🇰🇪</td>
+<td>Peter Kipkorir MUTAI</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Malawi 🇲🇼</td>
+<td>Patrick Edward MTINGWI</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Morocco 🇲🇦</td>
+<td>Chems Eddine EL GARRAI</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Namibia 🇳🇦</td>
+<td>Odillo KGOBETSI</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Namibia 🇳🇦</td>
+<td>Laina AMUNJELA (Ms.)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Namibia 🇳🇦</td>
+<td>Seblonica IMALWA (Ms.)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Namibia 🇳🇦</td>
+<td>Prince Julian HAOSEB</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Namibia 🇳🇦</td>
+<td>Uvatera TJIMUNE</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Namibia 🇳🇦</td>
+<td>Vilho NDEUNYEMA</td>
+</tr>
+<tr>
+<td>13</td>
+<td>South Africa 🇿🇦</td>
+<td>Tshepo Hope TAWANE</td>
+</tr>
+<tr>
+<td>14</td>
+<td>South Africa 🇿🇦</td>
+<td>Teko Mohono</td>
+</tr>
+<tr>
+<td>15</td>
+<td>South Africa 🇿🇦</td>
+<td>Thula Ngidi</td>
+</tr>
+<tr>
+<td>16</td>
+<td>South Africa 🇿🇦</td>
+<td>Christa Ferreira (Ms.)</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Tanzania     🇹🇿</td>
+<td>Rose Dudley SENYAGWA (Ms.)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Zambia      🇿🇲</td>
+<td>Naomi MUCHIPU (Ms.)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Zimbabwe 🇿🇼</td>
+<td>Joyce BANDA (Ms.)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Zimbabwe 🇿🇼</td>
+<td>Wilfred Janda CHAWAGUTA</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Zimbabwe 🇿🇼</td>
+<td>Zvidzai Malvin KANENGONI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="schedule-namibia-2023-03-instructors">Instructors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Organization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enrico Fucile</td>
+<td>WMO Secretariat 🇺🇳</td>
+</tr>
+<tr>
+<td>Hassan Haddouch</td>
+<td>WMO Secretariat 🇺🇳</td>
+</tr>
+<tr>
+<td>Tom Kralidis</td>
+<td>Meteorological Service of Canada 🇨🇦</td>
+</tr>
+<tr>
+<td>Maaike Limper</td>
+<td>WMO Secretariat 🇺🇳</td>
+</tr>
+<tr>
+<td>Timo Proescholdt</td>
+<td>WMO Secretariat 🇺🇳</td>
+</tr>
+</tbody>
+</table></section><section class="print-page" id="schedule-trinidad-and-tobago-2023-06"><h1 id="schedule-trinidad-and-tobago-2023-06-12-16-june-2023-port-of-spain-trinidad-and-tobago">12 - 16 June 2023: Port of Spain, Trinidad and Tobago 🇹🇹</h1>
+<p>TODO</p></section><section class="print-page" id="schedule-indonesia-2023-10"><h1 id="schedule-indonesia-2023-10-9-13-october-2023-jakarta-indonesia">9 - 13 October 2023: Jakarta, Indonesia</h1>
+<p>TODO</p></section><h1 class='nav-section-title-end'>Ended: Schedule</h1></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 World Meteorological Organization
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.indexes"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

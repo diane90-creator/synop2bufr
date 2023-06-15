@@ -1,0 +1,1230 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="WIS2 in a box (wis2box) is a Free and Open Source (FOSS) Reference Implementation of a WMO WIS2 Node. The project provides a plug and play toolset to ingest, process, and publish weather/climate/water data using standards-based approaches in alignment with the WIS2 principles. wis2box also provides access to all data in the WIS2 network. wis2box is designed to have a low barrier to entry for data providers, providing enabling infrastructure and services for data discovery, access, and visualization.">
+      
+      
+        <meta name="author" content="World Meteorological Organization">
+      
+      
+        <link rel="canonical" href="https://training.wis2box.wis.wmo.int/practical-sessions/environment-variables/">
+      
+      
+        <link rel="prev" href="../downloading-and-finding-data-from-wis2/">
+      
+      
+        <link rel="next" href="../configuring-data-mappings/">
+      
+      <link rel="icon" href="https://public.wmo.int/sites/all/themes/wmo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>wis2box environment variables - WIS2 in a box training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wis2box-environment-variables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WIS2 in a box training" class="md-header__button md-logo" aria-label="WIS2 in a box training" data-md-component="logo">
+      
+  <img src="../../assets/img/wmo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WIS2 in a box training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              wis2box environment variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wmo-im/wis2box-training" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WIS2 in a box training" class="md-nav__button md-logo" aria-label="WIS2 in a box training" data-md-component="logo">
+      
+  <img src="../../assets/img/wmo-logo.png" alt="logo">
+
+    </a>
+    WIS2 in a box training
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wmo-im/wis2box-training" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Practical sessions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Practical sessions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting-to-mqtt/" class="md-nav__link">
+        Connecting to WIS2 over MQTT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessing-your-student-vm/" class="md-nav__link">
+        Accessing your student VM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../converting-synop-data-to-bufr/" class="md-nav__link">
+        Converting SYNOP data to BUFR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../converting-csv-data-to-bufr/" class="md-nav__link">
+        Converting CSV data to BUFR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../converting-daycli-data-to-bufr/" class="md-nav__link">
+        Converting DAYCLI data to BUFR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wis2box-introduction/" class="md-nav__link">
+        wis2box introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-ingest-and-monitoring/" class="md-nav__link">
+        wis2box data ingest and monitoring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloading-and-finding-data-from-wis2/" class="md-nav__link">
+        Downloading and finding data from WIS2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          wis2box environment variables
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        wis2box environment variables
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-initialize-wis2box" class="md-nav__link">
+    re-initialize wis2box
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-your-own-devenv" class="md-nav__link">
+    Configure your own dev.env
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-your-own-wis2box-data-directory" class="md-nav__link">
+    Define your own wis2box data directory
+  </a>
+  
+    <nav class="md-nav" aria-label="Define your own wis2box data directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-empty-data-mappingsyml" class="md-nav__link">
+    create an (empty) data-mappings.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-an-empty-station-listcsv" class="md-nav__link">
+    create an (empty) station-list.csv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-custom-credentials-for-your-broker-and-storage" class="md-nav__link">
+    define custom credentials for your broker and storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-wis2box" class="md-nav__link">
+    Restart wis2box
+  </a>
+  
+    <nav class="md-nav" aria-label="Restart wis2box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-datawis2box-in-wis2box-management" class="md-nav__link">
+    Check /data/wis2box in wis2box-management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-connect-to-mqtt-explorer" class="md-nav__link">
+    Re-connect to MQTT-explorer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-the-minio-user-interface" class="md-nav__link">
+    Access the MinIO user interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-data-mappings/" class="md-nav__link">
+        wis2box configuring data mappings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-wis2-discovery-metadata/" class="md-nav__link">
+        wis2box configuring discovery metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-station-metadata/" class="md-nav__link">
+        wis2box configuring station metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-api-usage-and-queries/" class="md-nav__link">
+        wis2box data API usage and queries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+          Answers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Answers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../answers/synop2bufr-answers/" class="md-nav__link">
+        SYNOP data to BUFR answers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../answers/csv2bufr-answers/" class="md-nav__link">
+        CSV data to BUFR answers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Cheatsheets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cheatsheets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheatsheets/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheatsheets/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheatsheets/yaml/" class="md-nav__link">
+        YAML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheatsheets/wis2box/" class="md-nav__link">
+        WIS2 in a box
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../schedule/namibia-2023-03/">Schedule</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Schedule
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/trinidad-and-tobago-2023-06/" class="md-nav__link">
+        12 - 16 June 2023 - Port of Spain, Trinidad and Tobago 🇹🇹
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/indonesia-2023-10/" class="md-nav__link">
+        9 - 13 October 2023 - Jakarta, Indonesia 🇮🇩
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-initialize-wis2box" class="md-nav__link">
+    re-initialize wis2box
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-your-own-devenv" class="md-nav__link">
+    Configure your own dev.env
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-your-own-wis2box-data-directory" class="md-nav__link">
+    Define your own wis2box data directory
+  </a>
+  
+    <nav class="md-nav" aria-label="Define your own wis2box data directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-empty-data-mappingsyml" class="md-nav__link">
+    create an (empty) data-mappings.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-an-empty-station-listcsv" class="md-nav__link">
+    create an (empty) station-list.csv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-custom-credentials-for-your-broker-and-storage" class="md-nav__link">
+    define custom credentials for your broker and storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-wis2box" class="md-nav__link">
+    Restart wis2box
+  </a>
+  
+    <nav class="md-nav" aria-label="Restart wis2box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-datawis2box-in-wis2box-management" class="md-nav__link">
+    Check /data/wis2box in wis2box-management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-connect-to-mqtt-explorer" class="md-nav__link">
+    Re-connect to MQTT-explorer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-the-minio-user-interface" class="md-nav__link">
+    Access the MinIO user interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="wis2box-environment-variables">wis2box environment variables</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In this session you will customize your wis2box environment variables and re-initialize your wis2box.</p>
+<h3 id="preparation">Preparation</h3>
+<p>Login to your student VM using WinSCP (using SCP-protocol) and PuTTY.</p>
+<h2 id="re-initialize-wis2box">re-initialize wis2box</h2>
+<p>Stop your wis2box:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>stop
+</code></pre></div>
+<p>Stop the wis2box-ftp service:
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.wis2box-ftp.yml<span class="w"> </span>down
+</code></pre></div></p>
+<p>Check that there are no longer any Docker-containers running on your system:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div></p>
+<p>Check that you still have Docker volumes remaining on your system:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</code></pre></div></p>
+<p>To delete all Docker volumes that are not associated to a Docker Container, run the following command:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>prune
+</code></pre></div></p>
+<p>Check that your docker volumes are removed:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">wis2box and Docker volumes</p>
+<p>Note that deleting the Docker volumes is a quick way to re-initialize wis2box.</p>
+<p>It will also delete all information stored in the ElasticSearch API backend (i.e. discovery metadata, station metadata, data notifications, and previously ingested observation data).</p>
+<p><strong>Do NOT delete the <code>es-data</code>-volume if you want preserve previously ingested observation data.</strong></p>
+</div>
+<h2 id="configure-your-own-devenv">Configure your own <code>dev.env</code></h2>
+<p>The wis2box setup reads environment variables from <code>dev.env</code>. </p>
+<p>Make sure you are in the wis2box-directory and the check the current content of your <code>dev.env</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/wis2box-1.0b4/
+cat<span class="w"> </span>dev.env
+</code></pre></div>
+<p>This is the minimum setup that enabled you to run your wis2box in the previous exercises. </p>
+<p>This setup was using the pre-defined configuration stored in <code>~/exercise-materials/wis2box-test-data</code> as defined <code>WIS2BOX_HOST_DATADIR</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">WIS2BOX_URL and WIS2BOX_API_URL</p>
+<p>Note the current values of "WIS2BOX_URL" and "WIS2BOX_API_URL" are referring to your student-VM. </p>
+<p>Make sure you keep these values when editing your <code>dev.env</code></p>
+</div>
+<p>In the next few steps we will review how to update some of key environment variables used in wis2box by editing <code>dev.env</code> in the directory <code>wis2box-1.0b4</code>.</p>
+<p>You can use WinSCP to connect to your instance and edit this file or you can edit the file from the command line using PuTTY.</p>
+<h2 id="define-your-own-wis2box-data-directory">Define your own wis2box data directory</h2>
+<p>Using the SSH client connected to your student VM, use the following command to create a new directory on your instance:
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/wis2box-data
+</code></pre></div></p>
+<p>Inside this directory create the following directory structure for your discovery metadata and station metadata:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/wis2box-data/metadata/discovery
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/wis2box-data/metadata/station
+</code></pre></div>
+<h3 id="create-an-empty-data-mappingsyml">create an (empty) <code>data-mappings.yml</code></h3>
+<p>The wis2box requires the file <code>data-mappings.yml</code> stored in your wis2box data directory. </p>
+<p>Use the following commands to create an (empty) <code>data-mappings.yml</code> that you will populate at a later step. 
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;data:&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>~/wis2box-data/data-mappings.yml
+</code></pre></div></p>
+<h3 id="create-an-empty-station-listcsv">create an (empty) <code>station-list.csv</code></h3>
+<p>The wis2box requires the file <code>metadata/station/station_list.csv</code> store in your wis2box data directory.</p>
+<p>Use the following commands to create <code>metadata/station/station_list.csv</code> (headers only):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;station_name,wigos_station_identifier,traditional_station_identifier,facility_type,latitude,longitude,elevation,territory_name,wmo_region&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>~/wis2box-data/metadata/station/station_list.csv
+</code></pre></div>
+<p>Edit <code>dev.env</code> (using WinSCP or from the command line):</p>
+<p>Comment out the original <code>WIS2BOX_HOST_DATADIR</code> :</p>
+<p><code># WIS2BOX_HOST_DATADIR=/home/&lt;your-username&gt;/exercise-materials/wis2box-test-data</code> </p>
+<p>And add the following to point to your new directory:</p>
+<p><code>WIS2BOX_HOST_DATADIR=/home/&lt;your-username&gt;/wis2box-data</code></p>
+<h3 id="define-custom-credentials-for-your-broker-and-storage">define custom credentials for your broker and storage</h3>
+<p>Edit the file <code>dev.env</code> and add the following to customize the default broker credentials (replace <code>XXXXXXXX</code> with your own password):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># broker credentials</span>
+<span class="nv">WIS2BOX_BROKER_USERNAME</span><span class="o">=</span>wis2box
+<span class="nv">WIS2BOX_BROKER_PASSWORD</span><span class="o">=</span>XXXXXXXX
+</code></pre></div>
+<p>And the following content to <code>dev.env</code> to set the storage credentials (replace XXXXXXXX with your own password)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># storage credentials</span>
+<span class="nv">WIS2BOX_STORAGE_USERNAME</span><span class="o">=</span>minio
+<span class="nv">WIS2BOX_STORAGE_PASSWORD</span><span class="o">=</span>XXXXXXXX
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">storage credentials requirements</p>
+<p>Username should be 3 or more characters</p>
+<p>Password should be 8 or more characters</p>
+</div>
+<p>Finally, add the following block to your <code>dev.env</code> to ensure the credentials are propagated across all services:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># wis2box-public-broker</span>
+<span class="nv">WIS2BOX_BROKER_PUBLIC</span><span class="o">=</span>mqtt://<span class="si">${</span><span class="nv">WIS2BOX_BROKER_USERNAME</span><span class="si">}</span>:<span class="si">${</span><span class="nv">WIS2BOX_BROKER_PASSWORD</span><span class="si">}</span>@mosquitto:1883
+<span class="c1"># minio-setup</span>
+<span class="nv">MINIO_ROOT_USER</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_STORAGE_USERNAME</span><span class="si">}</span>
+<span class="nv">MINIO_ROOT_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_STORAGE_PASSWORD</span><span class="si">}</span>
+<span class="nv">MINIO_NOTIFY_MQTT_USERNAME_WIS2BOX</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_BROKER_USERNAME</span><span class="si">}</span>
+<span class="nv">MINIO_NOTIFY_MQTT_PASSWORD_WIS2BOX</span><span class="o">=</span><span class="si">${</span><span class="nv">WIS2BOX_BROKER_PASSWORD</span><span class="si">}</span>
+</code></pre></div>
+<p>The content of you <code>dev.env</code> should now look as follows (except for your own passwords and URLs):</p>
+<p><img alt="winscp_devdotenv" src="../../assets/img/winscp_devdotenv.png" width="800"></p>
+<h2 id="restart-wis2box">Restart wis2box</h2>
+<p>Start the wis2box and check the status:
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>start
+python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>status
+</code></pre></div></p>
+<h3 id="check-datawis2box-in-wis2box-management">Check /data/wis2box in wis2box-management</h3>
+<p>Login to the <strong>wis2box-management</strong> container using the following command:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>wis2box-ctl.py<span class="w"> </span>login
+</code></pre></div>
+<p>Run the following command to view the environment variable <code>WIS2BOX_HOST_DATADIR</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$WIS2BOX_HOST_DATADIR</span>
+</code></pre></div>
+<p>returns:</p>
+<div class="highlight"><pre><span></span><code><span class="go">/home/&lt;your-username&gt;/wis2box-data/</span>
+</code></pre></div>
+<p>And check the content of <code>/data/wis2box</code> inside the <strong>wis2box-management</strong> container:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/data/wis2box/
+</code></pre></div>
+<p>returns:</p>
+<div class="highlight"><pre><span></span><code><span class="go">data-mappings.yml metadata</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The directory defined by <code>$WIS2BOX_HOST_DATADIR</code> gets mounted as <code>/data/wis2box</code> inside the <strong>wis2box-management</strong> container.</p>
+</div>
+<h3 id="re-connect-to-mqtt-explorer">Re-connect to MQTT-explorer</h3>
+<p>Try to reconnect to MQTT Explorer using the values you defined for <code>WIS2BOX_BROKER_USERNAME</code> and <code>WIS2BOX_BROKER_PASSWORD</code></p>
+<h3 id="access-the-minio-user-interface">Access the MinIO user interface</h3>
+<p>Access the MinIO UI at <code>http://&lt;your-host-name&gt;:9001</code> using the values you defined for <code>WIS2BOX_STORAGE_USERNAME</code> and <code>WIS2BOX_STORAGE_PASSWORD</code></p>
+<h2 id="conclusion">Conclusion</h2>
+<div class="admonition success">
+<p class="admonition-title">Congratulations!</p>
+<p>In this practical session, you learned how to:</p>
+<ul>
+<li>reinitialize wis2box services</li>
+<li>set the wis2box data directory</li>
+<li>set custom passwords for your broker and storage</li>
+</ul>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 World Meteorological Organization
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
